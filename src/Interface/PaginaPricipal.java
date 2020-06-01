@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 
 public class PaginaPricipal extends javax.swing.JFrame {
 
-    private int Contador = 0;
+    private int Contador = 0, ContadorContenido = 0;
     private Texto ContenidosVetores = new Texto();
     private ImageIcon PROTOCOLO = new ImageIcon(getClass().getResource("/Imagenes/router-inalambrico (1).png"));
     private ImageIcon Html = new ImageIcon(getClass().getResource("/Imagenes/HTML (2).png"));
@@ -51,6 +51,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
         HTMLCONTENDOR.setVisible(false);
         CSSCONTENEDOR.setVisible(false);
         PROTOCOLOSCONTENEDOR.setVisible(false);
+        PaginaContenido.setVisible(false);
 
     }
 
@@ -124,19 +125,6 @@ public class PaginaPricipal extends javax.swing.JFrame {
             LogoTema12.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema12.getWidth(), LogoTema12.getHeight(), Image.SCALE_SMOOTH)));
         }
 
-        /*LogoTema1.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema1.getWidth(), LogoTema1.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema2.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema2.getWidth(), LogoTema2.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema3.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema3.getWidth(), LogoTema3.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema4.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema4.getWidth(), LogoTema4.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema5.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema5.getWidth(), LogoTema5.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema6.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema6.getWidth(), LogoTema6.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema7.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema7.getWidth(), LogoTema7.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema8.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema8.getWidth(), LogoTema8.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema9.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema9.getWidth(), LogoTema9.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema10.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema10.getWidth(), LogoTema10.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema11.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema11.getWidth(), LogoTema11.getHeight(), Image.SCALE_SMOOTH)));
-        LogoTema12.setIcon(new ImageIcon(IconosImagenes.get(Contador).getImage().getScaledInstance(LogoTema12.getWidth(), LogoTema12.getHeight(), Image.SCALE_SMOOTH)));
-         */
     }
 
     public void VisibleProtocolo() {
@@ -154,15 +142,15 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private void initComponents() {
 
         Cursos = new java.awt.Panel();
+        Protocolos = new javax.swing.JLabel();
         HTML = new javax.swing.JLabel();
         Css = new javax.swing.JLabel();
-        Protocolos = new javax.swing.JLabel();
         JavaScript = new javax.swing.JLabel();
+        PHP = new javax.swing.JLabel();
+        Java = new javax.swing.JLabel();
+        Python = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         ContenedorCursos = new javax.swing.JLabel();
         Buscador = new java.awt.Panel();
         ContenedorBuscador = new javax.swing.JLabel();
@@ -197,14 +185,26 @@ public class PaginaPricipal extends javax.swing.JFrame {
         ContenedorListadoCursos = new javax.swing.JLabel();
         ContenidoPrincipal = new java.awt.Panel();
         Icono = new javax.swing.JLabel();
-        ContenedorContenidoPricipal = new javax.swing.JLabel();
-        IntroduccionContenido = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        PaginaContenido = new javax.swing.JLabel();
+        ContenidoPrincipalPagina = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Cursos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Protocolos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/router-inalambrico (1).png"))); // NOI18N
+        Protocolos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ProtocolosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ProtocolosMouseEntered(evt);
+            }
+        });
+        Cursos.add(Protocolos, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 60, 60));
 
         HTML.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/HTML (2).png"))); // NOI18N
         HTML.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -225,30 +225,19 @@ public class PaginaPricipal extends javax.swing.JFrame {
         });
         Cursos.add(Css, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 150, 60, 60));
 
-        Protocolos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/router-inalambrico (1).png"))); // NOI18N
-        Protocolos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ProtocolosMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                ProtocolosMouseEntered(evt);
-            }
-        });
-        Cursos.add(Protocolos, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 10, 60, 60));
-
         JavaScript.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jabvs (1).png"))); // NOI18N
         Cursos.add(JavaScript, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 220, 60, 60));
-        Cursos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 60, 60));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/piton (1) (1).png"))); // NOI18N
-        Cursos.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 430, 60, 60));
-        Cursos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, 60, 60));
+        PHP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/php (1).png"))); // NOI18N
+        Cursos.add(PHP, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 290, 60, 60));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/java (1) (1).png"))); // NOI18N
-        Cursos.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 360, 60, 60));
+        Java.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/java (1) (1).png"))); // NOI18N
+        Cursos.add(Java, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 360, 60, 60));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/php (1).png"))); // NOI18N
-        Cursos.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 290, 60, 60));
+        Python.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/piton (1) (1).png"))); // NOI18N
+        Cursos.add(Python, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 430, 60, 60));
+        Cursos.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 500, 60, 60));
+        Cursos.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 570, 60, 60));
 
         ContenedorCursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Purple Paradise.png"))); // NOI18N
         Cursos.add(ContenedorCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 800));
@@ -267,6 +256,14 @@ public class PaginaPricipal extends javax.swing.JFrame {
         Tema1.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         Tema1.setForeground(new java.awt.Color(255, 255, 255));
         Tema1.setText(String.valueOf(ContenidosVetores.getETIQUETA1().get(0)));
+        Tema1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Tema1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Tema1MousePressed(evt);
+            }
+        });
         ListadoCursos.add(Tema1, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 20, 250, 40));
 
         LogoTema1.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
@@ -404,13 +401,19 @@ public class PaginaPricipal extends javax.swing.JFrame {
                 IconoMouseExited(evt);
             }
         });
-        ContenidoPrincipal.add(Icono, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 24, 24));
+        ContenidoPrincipal.add(Icono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 770, 24, 24));
 
-        ContenedorContenidoPricipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/COnetido.png"))); // NOI18N
-        ContenidoPrincipal.add(ContenedorContenidoPricipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        ContenidoPrincipal.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 600, -1));
 
-        IntroduccionContenido.setText("jLabel6");
-        ContenidoPrincipal.add(IntroduccionContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
+        PaginaContenido.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
+        ContenidoPrincipal.add(PaginaContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
+
+        ContenidoPrincipalPagina.setBackground(new java.awt.Color(255, 255, 255));
+        ContenidoPrincipalPagina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/COnetido.png"))); // NOI18N
+        ContenidoPrincipal.add(ContenidoPrincipalPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
 
         getContentPane().add(ContenidoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 660, 800));
 
@@ -463,6 +466,24 @@ public class PaginaPricipal extends javax.swing.JFrame {
         Ventana.setVisible(false);
     }//GEN-LAST:event_IconoMouseExited
 
+    private void Tema1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tema1MouseClicked
+
+    }//GEN-LAST:event_Tema1MouseClicked
+
+    private void Tema1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tema1MousePressed
+
+         if (Tema1.getText().equals(String.valueOf(ContenidosVetores.getETIQUETA1().get(0)))) {
+            ContadorContenido = 0;
+            PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
+            PaginaContenido.setVisible(true);
+
+        } else if (Tema1.getText().equals(String.valueOf(ContenidosVetores.getETIQUETA1().get(1)))) {
+            PaginaContenido.setText("HTML");
+            PaginaContenido.setVisible(true);
+
+        }
+    }//GEN-LAST:event_Tema1MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -506,16 +527,16 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private java.awt.Panel Buscador;
     private javax.swing.JLabel CSSCONTENEDOR;
     private javax.swing.JLabel ContenedorBuscador;
-    private javax.swing.JLabel ContenedorContenidoPricipal;
     private javax.swing.JLabel ContenedorCursos;
     private javax.swing.JLabel ContenedorListadoCursos;
     private java.awt.Panel ContenidoPrincipal;
+    private javax.swing.JLabel ContenidoPrincipalPagina;
     private javax.swing.JLabel Css;
     private java.awt.Panel Cursos;
     private javax.swing.JLabel HTML;
     private javax.swing.JLabel HTMLCONTENDOR;
     private javax.swing.JLabel Icono;
-    private javax.swing.JLabel IntroduccionContenido;
+    private javax.swing.JLabel Java;
     private javax.swing.JLabel JavaScript;
     private java.awt.Panel ListadoCursos;
     private javax.swing.JLabel LogoTema1;
@@ -530,8 +551,11 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private javax.swing.JLabel LogoTema7;
     private javax.swing.JLabel LogoTema8;
     private javax.swing.JLabel LogoTema9;
+    private javax.swing.JLabel PHP;
     private javax.swing.JLabel PROTOCOLOSCONTENEDOR;
+    private javax.swing.JLabel PaginaContenido;
     private javax.swing.JLabel Protocolos;
+    private javax.swing.JLabel Python;
     private javax.swing.JLabel Tema1;
     private javax.swing.JLabel Tema10;
     private javax.swing.JLabel Tema11;
@@ -545,9 +569,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private javax.swing.JLabel Tema8;
     private javax.swing.JLabel Tema9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
