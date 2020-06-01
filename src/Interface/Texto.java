@@ -155,7 +155,7 @@ public class Texto {
         
         String Pagina0 = "<html>"
                 + "<body>"
-                + "<h1><FONT SIZE=9><b>Introduccion a Protocolos de Internet</b></font></h1>"
+                + "<h1 align = center><FONT SIZE=9><b>Introduccion a Protocolos de Internet</b></font></h1>"
                 + "<h2><FONT SIZE=6><b>¿ Que es un Protocolo?</b></font></h2>"
                 + "<p>"
                 + "En informática, un protocolo es un conjunto de reglas usadas por computadoras<br>"
