@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interface;
 
 import java.awt.Image;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 public class PaginaPricipal extends javax.swing.JFrame {
 
@@ -52,6 +46,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
         CSSCONTENEDOR.setVisible(false);
         PROTOCOLOSCONTENEDOR.setVisible(false);
         PaginaContenido.setVisible(false);
+        Siguiente.setVisible(false);
+        Atras.setVisible(false);
 
     }
 
@@ -127,6 +123,11 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
     }
 
+    public void BotonesVisibles() {
+        Siguiente.setVisible(true);
+        Atras.setVisible(false);
+    }
+
     public void VisibleProtocolo() {
         HTMLCONTENDOR.setVisible(false);
         PROTOCOLOSCONTENEDOR.setVisible(true);
@@ -135,6 +136,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
     public void VisibleHTML() {
         PROTOCOLOSCONTENEDOR.setVisible(false);
         HTMLCONTENDOR.setVisible(true);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -186,6 +188,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
         ContenidoPrincipal = new java.awt.Panel();
         Icono = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        Siguiente = new javax.swing.JButton();
+        Atras = new javax.swing.JButton();
         PaginaContenido = new javax.swing.JLabel();
         ContenidoPrincipalPagina = new javax.swing.JLabel();
 
@@ -389,7 +393,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
         ContenidoPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoNegro.png"))); // NOI18N
+        Icono.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/LogoBalquecino.png"))); // NOI18N
         Icono.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 IconoMouseClicked(evt);
@@ -403,16 +407,38 @@ public class PaginaPricipal extends javax.swing.JFrame {
         });
         ContenidoPrincipal.add(Icono, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 770, 24, 24));
 
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         ContenidoPrincipal.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 600, -1));
 
+        Siguiente.setBackground(new java.awt.Color(0, 153, 255));
+        Siguiente.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        Siguiente.setForeground(new java.awt.Color(255, 255, 255));
+        Siguiente.setText("Siguiente");
+        Siguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SiguienteActionPerformed(evt);
+            }
+        });
+        ContenidoPrincipal.add(Siguiente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 755, 100, -1));
+
+        Atras.setBackground(new java.awt.Color(0, 153, 255));
+        Atras.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
+        Atras.setForeground(new java.awt.Color(255, 255, 255));
+        Atras.setText("Atras");
+        Atras.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AtrasActionPerformed(evt);
+            }
+        });
+        ContenidoPrincipal.add(Atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 755, 100, -1));
+
         PaginaContenido.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
+        PaginaContenido.setForeground(new java.awt.Color(255, 255, 255));
         PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
         ContenidoPrincipal.add(PaginaContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
 
         ContenidoPrincipalPagina.setBackground(new java.awt.Color(255, 255, 255));
-        ContenidoPrincipalPagina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/COnetido.png"))); // NOI18N
+        ContenidoPrincipalPagina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RedesFinal.png"))); // NOI18N
         ContenidoPrincipal.add(ContenidoPrincipalPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
 
         getContentPane().add(ContenidoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 660, 800));
@@ -472,17 +498,85 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
     private void Tema1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Tema1MousePressed
 
-         if (Tema1.getText().equals(String.valueOf(ContenidosVetores.getETIQUETA1().get(0)))) {
+        BotonesVisibles();
+
+        if (Tema1.getText().equals(String.valueOf(ContenidosVetores.getETIQUETA1().get(0)))) {
             ContadorContenido = 0;
+            
             PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
             PaginaContenido.setVisible(true);
 
         } else if (Tema1.getText().equals(String.valueOf(ContenidosVetores.getETIQUETA1().get(1)))) {
-            PaginaContenido.setText("HTML");
+              ContadorContenido = 0;
+            PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoHTMLTema1().get(ContadorContenido)));
             PaginaContenido.setVisible(true);
-
         }
     }//GEN-LAST:event_Tema1MousePressed
+
+    private void SiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SiguienteActionPerformed
+
+        switch (Tema1.getText()) {
+
+            case "1 . Introduccion a Redes":
+                ContadorContenido++;
+                PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
+                if (ContadorContenido == (ContenidosVetores.getContenidoProtocolosTema1().size() - 1) && ContadorContenido > 0) {
+                    Siguiente.setVisible(false);
+                    Atras.setVisible(true);
+                } else if (ContadorContenido > 0 && (ContadorContenido < ContenidosVetores.getContenidoProtocolosTema1().size() - 1)) {
+                    Siguiente.setVisible(true);
+                    Atras.setVisible(true);
+                } else {
+                    Atras.setVisible(false);
+                }
+                break;
+            case "1 . Introduccion a HTML":
+                ContadorContenido++;
+                PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoHTMLTema1().get(ContadorContenido)));
+                if (ContadorContenido == (ContenidosVetores.getContenidoHTMLTema1().size() - 1) && ContadorContenido > 0) {
+                    Siguiente.setVisible(false);
+                    Atras.setVisible(true);
+                } else if (ContadorContenido > 0 && (ContadorContenido < ContenidosVetores.getContenidoHTMLTema1().size() - 1)) {
+                    Siguiente.setVisible(true);
+                    Atras.setVisible(true);
+                } else {
+                    Atras.setVisible(false);
+                }
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_SiguienteActionPerformed
+
+    private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
+        switch (Tema1.getText()) {
+
+            case "1 . Introduccion a Redes":
+                ContadorContenido--;
+                PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
+                if (ContadorContenido < ContenidosVetores.getContenidoProtocolosTema1().size() && ContadorContenido == 0) {
+                    Siguiente.setVisible(true);
+                    Atras.setVisible(false);
+                } else if (ContadorContenido < ContenidosVetores.getContenidoProtocolosTema1().size() && ContadorContenido != 0) {
+                    Siguiente.setVisible(true);
+                    Atras.setVisible(true);
+                }
+                break;
+            case "1 . Introduccion a HTML":
+                ContadorContenido--;
+                PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoHTMLTema1().get(ContadorContenido)));
+                if (ContadorContenido < ContenidosVetores.getContenidoHTMLTema1().size() && ContadorContenido == 0) {
+                    Siguiente.setVisible(true);
+                    Atras.setVisible(false);
+                } else if (ContadorContenido < ContenidosVetores.getContenidoHTMLTema1().size() && ContadorContenido != 0) {
+                    Siguiente.setVisible(true);
+                    Atras.setVisible(true);
+                }
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_AtrasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -524,6 +618,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Atras;
     private java.awt.Panel Buscador;
     private javax.swing.JLabel CSSCONTENEDOR;
     private javax.swing.JLabel ContenedorBuscador;
@@ -556,6 +651,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private javax.swing.JLabel PaginaContenido;
     private javax.swing.JLabel Protocolos;
     private javax.swing.JLabel Python;
+    private javax.swing.JButton Siguiente;
     private javax.swing.JLabel Tema1;
     private javax.swing.JLabel Tema10;
     private javax.swing.JLabel Tema11;
