@@ -155,8 +155,13 @@ public class Texto {
 
         String Pagina0 = "<html>"
                 + "<body>"
+<<<<<<< HEAD
                 + "<h1 align = center><FONT SIZE=9><b>Redes de Computadoras</b></font></h1>"
                 + "<h2><FONT SIZE=6><b>¿ Que es una Red?</b></font></h2>"
+=======
+                + "<h1 align = center><FONT SIZE=9><b>Introduccion a Protocolos de Internet</b></font></h1>"
+                + "<h2><FONT SIZE=6><b>¿ Que es un Protocolo?</b></font></h2>"
+>>>>>>> 1377710fdb3fbab3425d4c94916efce50f1f2865
                 + "<p>"
                 + "Una red de Computadoras (Tambien llamada Red de Computadores o Red <br>"
                 + "Informatica) es un conjunto de equipos (Computadoras y/o Dispositivos) conectados<br>"
