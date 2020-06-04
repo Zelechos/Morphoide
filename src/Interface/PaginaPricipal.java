@@ -1,6 +1,9 @@
 package Interface;
 
 import java.awt.Image;
+import java.awt.KeyEventPostProcessor;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class PaginaPricipal extends javax.swing.JFrame {
@@ -10,10 +13,31 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private ImageIcon PROTOCOLO = new ImageIcon(getClass().getResource("/Imagenes/router-inalambrico (1).png"));
     private ImageIcon Html = new ImageIcon(getClass().getResource("/Imagenes/HTML (2).png"));
     private MensajeOculto Ventana = new MensajeOculto();
+    private int c0n = 0;
 
     public PaginaPricipal() {
         initComponents();
         Invisible();
+        ESC();
+
+    }
+        
+//Para salir del Programa Con Un doble Escape Investigar mas TODO EL CONTENIDO DE ESTE METODO
+    public void ESC() {
+        KeyboardFocusManager Escape = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+
+        Escape.addKeyEventPostProcessor(new KeyEventPostProcessor() {
+            @Override
+            public boolean postProcessKeyEvent(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    c0n++;
+                    if (c0n == 3) {
+                        System.exit(0);
+                    }
+                }
+                return true;
+            }
+        });
     }
 
     public void Invisible() {
@@ -502,12 +526,12 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
         if (Tema1.getText().equals(String.valueOf(ContenidosVetores.getETIQUETA1().get(0)))) {
             ContadorContenido = 0;
-            
+
             PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
             PaginaContenido.setVisible(true);
 
         } else if (Tema1.getText().equals(String.valueOf(ContenidosVetores.getETIQUETA1().get(1)))) {
-              ContadorContenido = 0;
+            ContadorContenido = 0;
             PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoHTMLTema1().get(ContadorContenido)));
             PaginaContenido.setVisible(true);
         }
