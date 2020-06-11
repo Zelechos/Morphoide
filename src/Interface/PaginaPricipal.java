@@ -14,11 +14,28 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private ImageIcon Html = new ImageIcon(getClass().getResource("/Imagenes/HTML (2).png"));
     private MensajeOculto Ventana = new MensajeOculto();
     private int c0n = 0;
-
+    private String Encabezado="<html><body>"
+            + "<h1 align=center><FONT SIZE = 7><strong>Bienvenido a Pragmatic Morphoide</strong></font></h1><br><br>"
+            + "<p align = center>"
+            + "Pragmatic Morphoide es una plataforma de Cursos Gratuitos y Offline para<br>"
+            + "la gente que quiere ser diferente aprender sin limitaciones empieza ya en<br>"
+            + "la barra de cursos algunos son teoricos (Como deben ser) y otros 100% <br>"
+            + "practicos aqui aprenderas a programar en diferentes lenguajes de <br>"
+            + "programacion y tecnologias que hoy en pleno 2020 son utiles asi que<br>"
+            + "Buenas Amanecidas que el Codigo no se Escribe solo ;). <br>"
+            + "</p>"
+            + "<br><br><br><br><br><br><br><br><br><br><br><br><br>"
+            + "<p align = center>Creador Alex Tumiri Huanca</p>"
+            + "<h4 align = right>by Etherias Projects</h4><br><br><br>"
+            + "</body>"
+            + "</html>";
+    
+    
     public PaginaPricipal() {
         initComponents();
         Invisible();
         ESC();
+        Buscador();
 
     }
         
@@ -40,6 +57,9 @@ public class PaginaPricipal extends javax.swing.JFrame {
         });
     }
 
+    public void Buscador(){
+        BuscadorText.setBackground(new java.awt.Color(0,0,0,1));
+    }
     public void Invisible() {
 
         Tema1.setVisible(false);
@@ -72,6 +92,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
         PaginaContenido.setVisible(false);
         Siguiente.setVisible(false);
         Atras.setVisible(false);
+        ContenidoRedes.setVisible(false);
 
     }
 
@@ -155,12 +176,12 @@ public class PaginaPricipal extends javax.swing.JFrame {
     public void VisibleProtocolo() {
         HTMLCONTENDOR.setVisible(false);
         PROTOCOLOSCONTENEDOR.setVisible(true);
+        ContenidoRedes.setVisible(true);
     }
 
     public void VisibleHTML() {
         PROTOCOLOSCONTENEDOR.setVisible(false);
         HTMLCONTENDOR.setVisible(true);
-
     }
 
     @SuppressWarnings("unchecked")
@@ -179,6 +200,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         ContenedorCursos = new javax.swing.JLabel();
         Buscador = new java.awt.Panel();
+        BuscadorText = new javax.swing.JTextField();
+        IconBuscador = new javax.swing.JLabel();
         ContenedorBuscador = new javax.swing.JLabel();
         ListadoCursos = new java.awt.Panel();
         Tema1 = new javax.swing.JLabel();
@@ -208,6 +231,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
         HTMLCONTENDOR = new javax.swing.JLabel();
         PROTOCOLOSCONTENEDOR = new javax.swing.JLabel();
         CSSCONTENEDOR = new javax.swing.JLabel();
+        Flecha = new javax.swing.JLabel();
+        Texto = new javax.swing.JLabel();
         ContenedorListadoCursos = new javax.swing.JLabel();
         ContenidoPrincipal = new java.awt.Panel();
         Icono = new javax.swing.JLabel();
@@ -215,7 +240,10 @@ public class PaginaPricipal extends javax.swing.JFrame {
         Siguiente = new javax.swing.JButton();
         Atras = new javax.swing.JButton();
         PaginaContenido = new javax.swing.JLabel();
-        ContenidoPrincipalPagina = new javax.swing.JLabel();
+        ContenidoRedes = new javax.swing.JLabel();
+        Creador = new javax.swing.JLabel();
+        TextoInicio = new javax.swing.JLabel();
+        ContenidoInicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -273,6 +301,16 @@ public class PaginaPricipal extends javax.swing.JFrame {
         getContentPane().add(Cursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 70, 800));
 
         Buscador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        BuscadorText.setFont(new java.awt.Font("Segoe UI Light", 1, 16)); // NOI18N
+        BuscadorText.setForeground(new java.awt.Color(255, 255, 255));
+        BuscadorText.setText("Buscar . . .");
+        BuscadorText.setBorder(null);
+        BuscadorText.setOpaque(false);
+        Buscador.add(BuscadorText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 300, 30));
+
+        IconBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Lupa.png"))); // NOI18N
+        Buscador.add(IconBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 32, 32));
 
         ContenedorBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BUscardor.png"))); // NOI18N
         Buscador.add(ContenedorBuscador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 50));
@@ -410,6 +448,17 @@ public class PaginaPricipal extends javax.swing.JFrame {
         CSSCONTENEDOR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CONTENEDORCSS.png"))); // NOI18N
         ListadoCursos.add(CSSCONTENEDOR, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 750));
 
+        Flecha.setForeground(new java.awt.Color(255, 255, 255));
+        Flecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Flecha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/FinFlecha.png"))); // NOI18N
+        ListadoCursos.add(Flecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 200, 350));
+
+        Texto.setFont(new java.awt.Font("Segoe UI Light", 1, 24)); // NOI18N
+        Texto.setForeground(new java.awt.Color(255, 255, 255));
+        Texto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Texto.setText("Acerca el Mouse a los Cursos");
+        ListadoCursos.add(Texto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 350, 35));
+
         ContenedorListadoCursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Mirage.png"))); // NOI18N
         ListadoCursos.add(ContenedorListadoCursos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 750));
 
@@ -461,9 +510,23 @@ public class PaginaPricipal extends javax.swing.JFrame {
         PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
         ContenidoPrincipal.add(PaginaContenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
 
-        ContenidoPrincipalPagina.setBackground(new java.awt.Color(255, 255, 255));
-        ContenidoPrincipalPagina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RedesFinal.png"))); // NOI18N
-        ContenidoPrincipal.add(ContenidoPrincipalPagina, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
+        ContenidoRedes.setBackground(new java.awt.Color(255, 255, 255));
+        ContenidoRedes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/RedesFinal.png"))); // NOI18N
+        ContenidoPrincipal.add(ContenidoRedes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
+
+        Creador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Creador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/CreatorFainal.png"))); // NOI18N
+        ContenidoPrincipal.add(Creador, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 300, 300));
+
+        TextoInicio.setFont(new java.awt.Font("Segoe UI Light", 1, 18)); // NOI18N
+        TextoInicio.setForeground(new java.awt.Color(255, 255, 255));
+        TextoInicio.setText(Encabezado);
+        ContenidoPrincipal.add(TextoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 730));
+
+        ContenidoInicio.setBackground(new java.awt.Color(255, 255, 255));
+        ContenidoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Electric Violet.png"))); // NOI18N
+        ContenidoInicio.setText("sdfsdfsdfs");
+        ContenidoPrincipal.add(ContenidoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
 
         getContentPane().add(ContenidoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 660, 800));
 
@@ -644,16 +707,21 @@ public class PaginaPricipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Atras;
     private java.awt.Panel Buscador;
+    private javax.swing.JTextField BuscadorText;
     private javax.swing.JLabel CSSCONTENEDOR;
     private javax.swing.JLabel ContenedorBuscador;
     private javax.swing.JLabel ContenedorCursos;
     private javax.swing.JLabel ContenedorListadoCursos;
+    private javax.swing.JLabel ContenidoInicio;
     private java.awt.Panel ContenidoPrincipal;
-    private javax.swing.JLabel ContenidoPrincipalPagina;
+    private javax.swing.JLabel ContenidoRedes;
+    private javax.swing.JLabel Creador;
     private javax.swing.JLabel Css;
     private java.awt.Panel Cursos;
+    private javax.swing.JLabel Flecha;
     private javax.swing.JLabel HTML;
     private javax.swing.JLabel HTMLCONTENDOR;
+    private javax.swing.JLabel IconBuscador;
     private javax.swing.JLabel Icono;
     private javax.swing.JLabel Java;
     private javax.swing.JLabel JavaScript;
@@ -688,6 +756,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private javax.swing.JLabel Tema7;
     private javax.swing.JLabel Tema8;
     private javax.swing.JLabel Tema9;
+    private javax.swing.JLabel Texto;
+    private javax.swing.JLabel TextoInicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSeparator1;
