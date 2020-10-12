@@ -153,6 +153,7 @@ public class Texto {
 
     
     //Cambiar la Manera de Introducir el Contenido
+    //Cambiooooo es lo mejor
     public ArrayList getContenidoProtocolosTema1() {
 
         String Pagina0 = "<html>"
