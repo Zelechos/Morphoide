@@ -25,7 +25,7 @@ public class CerrandoInicio {
         try {
 
             VentanaPrimaria.setVisible(true);
-            Thread.sleep(2500);
+            Thread.sleep(3000);
             VentanaPrimaria.setVisible(false);
             VentanaSecundaria.setVisible(true);
 

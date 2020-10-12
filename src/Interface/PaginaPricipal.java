@@ -1,9 +1,8 @@
 package Interface;
 
+import Interactividad.Teclas;
+import java.applet.AudioClip;
 import java.awt.Image;
-import java.awt.KeyEventPostProcessor;
-import java.awt.KeyboardFocusManager;
-import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 
 public class PaginaPricipal extends javax.swing.JFrame {
@@ -13,7 +12,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private ImageIcon PROTOCOLO = new ImageIcon(getClass().getResource("/Imagenes/router-inalambrico (1).png"));
     private ImageIcon Html = new ImageIcon(getClass().getResource("/Imagenes/HTML (2).png"));
     private MensajeOculto Ventana = new MensajeOculto();
-    private int c0n = 0;
+    private AudioClip Morgan;
     private String Encabezado="<html><body>"
             + "<h1 align=center><FONT SIZE = 7><strong>Bienvenido a Pragmatic Morphoide</strong></font></h1><br><br>"
             + "<p align = center>"
@@ -33,33 +32,23 @@ public class PaginaPricipal extends javax.swing.JFrame {
     
     public PaginaPricipal() {
         initComponents();
+        AtajoDeTeclado();
         Invisible();
-        ESC();
         Buscador();
 
     }
-        
-//Para salir del Programa Con Un doble Escape Investigar mas TODO EL CONTENIDO DE ESTE METODO
-    public void ESC() {
-        KeyboardFocusManager Escape = KeyboardFocusManager.getCurrentKeyboardFocusManager();
 
-        Escape.addKeyEventPostProcessor(new KeyEventPostProcessor() {
-            @Override
-            public boolean postProcessKeyEvent(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    c0n++;
-                    if (c0n == 3) {
-                        System.exit(0);
-                    }
-                }
-                return true;
-            }
-        });
+    private void AtajoDeTeclado(){
+        Teclas Tecla =  new Teclas();
+        Tecla.Salir();
     }
+    
+
 
     public void Buscador(){
         BuscadorText.setBackground(new java.awt.Color(0,0,0,1));
     }
+    
     public void Invisible() {
 
         Tema1.setVisible(false);
@@ -278,10 +267,18 @@ public class PaginaPricipal extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CssMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                CssMouseEntered(evt);
+            }
         });
         Cursos.add(Css, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 150, 60, 60));
 
         JavaScript.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jabvs (1).png"))); // NOI18N
+        JavaScript.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                JavaScriptMouseEntered(evt);
+            }
+        });
         Cursos.add(JavaScript, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 220, 60, 60));
 
         PHP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/php (1).png"))); // NOI18N
@@ -302,11 +299,17 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
         Buscador.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        BuscadorText.setBackground(new java.awt.Color(0, 51, 102));
         BuscadorText.setFont(new java.awt.Font("Segoe UI Light", 1, 16)); // NOI18N
         BuscadorText.setForeground(new java.awt.Color(255, 255, 255));
         BuscadorText.setText("Buscar . . .");
         BuscadorText.setBorder(null);
         BuscadorText.setOpaque(false);
+        BuscadorText.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                BuscadorTextMouseClicked(evt);
+            }
+        });
         Buscador.add(BuscadorText, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 300, 30));
 
         IconBuscador.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Lupa.png"))); // NOI18N
@@ -525,7 +528,6 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
         ContenidoInicio.setBackground(new java.awt.Color(255, 255, 255));
         ContenidoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Electric Violet.png"))); // NOI18N
-        ContenidoInicio.setText("sdfsdfsdfs");
         ContenidoPrincipal.add(ContenidoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 800));
 
         getContentPane().add(ContenidoPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 660, 800));
@@ -561,6 +563,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
         Contador = 0;
         VisibleProtocolo();
         Visible();
+        Morgan = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/redes.wav"));
+        Morgan.play();
 
     }//GEN-LAST:event_ProtocolosMouseEntered
 
@@ -568,6 +572,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
         Contador = 1;
         VisibleHTML();
         Visible();
+        Morgan = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/html.wav"));
+        Morgan.play();
 
     }//GEN-LAST:event_HTMLMouseEntered
 
@@ -604,7 +610,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
         switch (Tema1.getText()) {
 
-            case "1 . Introduccion a Redes":
+            case "1 . Fundamentos Redes":
                 ContadorContenido++;
                 PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
                 if (ContadorContenido == (ContenidosVetores.getContenidoProtocolosTema1().size() - 1) && ContadorContenido > 0) {
@@ -638,7 +644,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private void AtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AtrasActionPerformed
         switch (Tema1.getText()) {
 
-            case "1 . Introduccion a Redes":
+            case "1 . Fundamentos Redes":
                 ContadorContenido--;
                 PaginaContenido.setText(String.valueOf(ContenidosVetores.getContenidoProtocolosTema1().get(ContadorContenido)));
                 if (ContadorContenido < ContenidosVetores.getContenidoProtocolosTema1().size() && ContadorContenido == 0) {
@@ -664,6 +670,21 @@ public class PaginaPricipal extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_AtrasActionPerformed
+
+    private void JavaScriptMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JavaScriptMouseEntered
+
+        Morgan = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/javascript.wav"));
+        Morgan.play();
+    }//GEN-LAST:event_JavaScriptMouseEntered
+
+    private void CssMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CssMouseEntered
+        Morgan = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/css.wav"));
+        Morgan.play();
+    }//GEN-LAST:event_CssMouseEntered
+
+    private void BuscadorTextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscadorTextMouseClicked
+        BuscadorText.setText("");
+    }//GEN-LAST:event_BuscadorTextMouseClicked
 
     /**
      * @param args the command line arguments
