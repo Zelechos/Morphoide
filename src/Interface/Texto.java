@@ -151,6 +151,8 @@ public class Texto {
         return Para_Tema12;
     }
 
+    
+    //Cambiar la Manera de Introducir el Contenido
     public ArrayList getContenidoProtocolosTema1() {
 
         String Pagina0 = "<html>"
