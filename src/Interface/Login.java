@@ -22,7 +22,9 @@ public class Login extends javax.swing.JFrame {
         EstiloForms();
     }
     
-    
+    public void Inicio(){
+
+    }
     
     //Para salir del Programa Con Un doble Escape Investigar mas TODO EL CONTENIDO DE ESTE METODO
     public void Teclas() {
