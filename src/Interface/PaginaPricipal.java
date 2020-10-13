@@ -35,7 +35,6 @@ public class PaginaPricipal extends javax.swing.JFrame {
         AtajoDeTeclado();
         Invisible();
         Buscador();
-
     }
 
     private void AtajoDeTeclado(){
