@@ -3,7 +3,9 @@ package Interface;
 import Interactividad.Teclas;
 import java.applet.AudioClip;
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class PaginaPricipal extends javax.swing.JFrame {
 
@@ -13,6 +15,9 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private ImageIcon Html = new ImageIcon(getClass().getResource("/Imagenes/HTML (2).png"));
     private MensajeOculto Ventana = new MensajeOculto();
     private AudioClip Morgan;
+    private ArrayList<JLabel> Labels = new ArrayList<>();
+    private ArrayList<String> Textos = new ArrayList<>();
+    
     private String Encabezado="<html><body>"
             + "<h1 align=center><FONT SIZE = 7><strong>Bienvenido a Pragmatic Morphoide</strong></font></h1><br><br>"
             + "<p align = center>"
@@ -33,6 +38,7 @@ public class PaginaPricipal extends javax.swing.JFrame {
     public PaginaPricipal() {
         initComponents();
         AtajoDeTeclado();
+        LabelStyles();
         Invisible();
         Buscador();
     }
@@ -43,119 +49,98 @@ public class PaginaPricipal extends javax.swing.JFrame {
     }
     
 
-
     public void Buscador(){
         BuscadorText.setBackground(new java.awt.Color(0,0,0,1));
     }
     
+    public void LabelStyles(){
+        //Titulos de los Temas
+        Labels.add(Tema1);
+        Labels.add(Tema2);
+        Labels.add(Tema3);
+        Labels.add(Tema4);
+        Labels.add(Tema5);
+        Labels.add(Tema6);
+        Labels.add(Tema7);
+        Labels.add(Tema8);
+        Labels.add(Tema9);
+        Labels.add(Tema10);
+        Labels.add(Tema11);
+        Labels.add(Tema12);
+        //Logo de los Temas
+        Labels.add(LogoTema1);
+        Labels.add(LogoTema2);
+        Labels.add(LogoTema3);
+        Labels.add(LogoTema4);
+        Labels.add(LogoTema5);
+        Labels.add(LogoTema6);
+        Labels.add(LogoTema7);
+        Labels.add(LogoTema8);
+        Labels.add(LogoTema9);
+        Labels.add(LogoTema10);
+        Labels.add(LogoTema11);
+        Labels.add(LogoTema12);
+        //Contenedores de Tecnologias
+        Labels.add(HTMLCONTENDOR);
+        Labels.add(CSSCONTENEDOR);
+        Labels.add(PROTOCOLOSCONTENEDOR);
+        Labels.add(PaginaContenido);
+        Labels.add(ContenidoRedes);
+    }
+    
+    public void Texto(){
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA1().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA2().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA3().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA4().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA5().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA6().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA7().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA8().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA9().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA10().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA11().get(Contador)));
+        Textos.add(String.valueOf(ContenidosVetores.getETIQUETA12().get(Contador)));
+    }
+    
     public void Invisible() {
+        //For para Ocultar los Labels
+        for (int i = 0; i < Labels.size(); i++) {
+            Labels.get(i).setVisible(false);
+        }
 
-        Tema1.setVisible(false);
-        LogoTema1.setVisible(false);
-        Tema2.setVisible(false);
-        LogoTema2.setVisible(false);
-        Tema3.setVisible(false);
-        LogoTema3.setVisible(false);
-        Tema4.setVisible(false);
-        LogoTema4.setVisible(false);
-        Tema5.setVisible(false);
-        LogoTema5.setVisible(false);
-        Tema6.setVisible(false);
-        LogoTema6.setVisible(false);
-        Tema7.setVisible(false);
-        LogoTema7.setVisible(false);
-        Tema8.setVisible(false);
-        LogoTema8.setVisible(false);
-        Tema9.setVisible(false);
-        LogoTema9.setVisible(false);
-        Tema10.setVisible(false);
-        LogoTema10.setVisible(false);
-        Tema11.setVisible(false);
-        LogoTema11.setVisible(false);
-        Tema12.setVisible(false);
-        LogoTema12.setVisible(false);
-        HTMLCONTENDOR.setVisible(false);
-        CSSCONTENEDOR.setVisible(false);
-        PROTOCOLOSCONTENEDOR.setVisible(false);
-        PaginaContenido.setVisible(false);
         Siguiente.setVisible(false);
         Atras.setVisible(false);
-        ContenidoRedes.setVisible(false);
 
     }
 
     public void Visible() {
-
-        Tema1.setVisible(true);
-        LogoTema1.setVisible(true);
-        Tema2.setVisible(true);
-        LogoTema2.setVisible(true);
-        Tema3.setVisible(true);
-        LogoTema3.setVisible(true);
-        Tema4.setVisible(true);
-        LogoTema4.setVisible(true);
-        Tema5.setVisible(true);
-        LogoTema5.setVisible(true);
-        Tema6.setVisible(true);
-        LogoTema6.setVisible(true);
-        Tema7.setVisible(true);
-        LogoTema7.setVisible(true);
-        Tema8.setVisible(true);
-        LogoTema8.setVisible(true);
-        Tema9.setVisible(true);
-        LogoTema9.setVisible(true);
-        Tema10.setVisible(true);
-        LogoTema10.setVisible(true);
-        Tema11.setVisible(true);
-        LogoTema11.setVisible(true);
-        Tema12.setVisible(true);
-        LogoTema12.setVisible(true);
-
-        Tema1.setText(String.valueOf(ContenidosVetores.getETIQUETA1().get(Contador)));
-        Tema2.setText(String.valueOf(ContenidosVetores.getETIQUETA2().get(Contador)));
-        Tema3.setText(String.valueOf(ContenidosVetores.getETIQUETA3().get(Contador)));
-        Tema4.setText(String.valueOf(ContenidosVetores.getETIQUETA4().get(Contador)));
-        Tema5.setText(String.valueOf(ContenidosVetores.getETIQUETA5().get(Contador)));
-        Tema6.setText(String.valueOf(ContenidosVetores.getETIQUETA6().get(Contador)));
-        Tema7.setText(String.valueOf(ContenidosVetores.getETIQUETA7().get(Contador)));
-        Tema8.setText(String.valueOf(ContenidosVetores.getETIQUETA8().get(Contador)));
-        Tema9.setText(String.valueOf(ContenidosVetores.getETIQUETA9().get(Contador)));
-        Tema10.setText(String.valueOf(ContenidosVetores.getETIQUETA10().get(Contador)));
-        Tema11.setText(String.valueOf(ContenidosVetores.getETIQUETA11().get(Contador)));
-        Tema12.setText(String.valueOf(ContenidosVetores.getETIQUETA12().get(Contador)));
-
+        
+        //For para Mostrar los Labels
+        for (int i = 0; i < 24; i++) {
+            Labels.get(i).setVisible(true);
+        }
+        
+        //Aqui Arreglar el error de los textos que no cambian en base al tema asignadoo !!!! urgente
+        for (int i = 0; i < 12; i++) {
+            Labels.get(i).setText(Textos.get(i));
+        }
+        
         if (Contador == 0) {
-            LogoTema1.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema1.getWidth(), LogoTema1.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema2.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema2.getWidth(), LogoTema2.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema3.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema3.getWidth(), LogoTema3.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema4.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema4.getWidth(), LogoTema4.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema5.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema5.getWidth(), LogoTema5.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema6.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema6.getWidth(), LogoTema6.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema7.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema7.getWidth(), LogoTema7.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema8.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema8.getWidth(), LogoTema8.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema9.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema9.getWidth(), LogoTema9.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema10.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema10.getWidth(), LogoTema10.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema11.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema11.getWidth(), LogoTema11.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema12.setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(LogoTema12.getWidth(), LogoTema12.getHeight(), Image.SCALE_SMOOTH)));
+
+            for (int i = 12; i < 24; i++) {
+                Labels.get(i).setIcon(new ImageIcon(PROTOCOLO.getImage().getScaledInstance(Labels.get(i).getWidth(), Labels.get(i).getHeight(), Image.SCALE_SMOOTH)));
+            }
 
         } else if (Contador == 1) {
 
-            LogoTema1.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema1.getWidth(), LogoTema1.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema2.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema2.getWidth(), LogoTema2.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema3.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema3.getWidth(), LogoTema3.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema4.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema4.getWidth(), LogoTema4.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema5.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema5.getWidth(), LogoTema5.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema6.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema6.getWidth(), LogoTema6.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema7.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema7.getWidth(), LogoTema7.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema8.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema8.getWidth(), LogoTema8.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema9.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema9.getWidth(), LogoTema9.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema10.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema10.getWidth(), LogoTema10.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema11.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema11.getWidth(), LogoTema11.getHeight(), Image.SCALE_SMOOTH)));
-            LogoTema12.setIcon(new ImageIcon(Html.getImage().getScaledInstance(LogoTema12.getWidth(), LogoTema12.getHeight(), Image.SCALE_SMOOTH)));
+            for (int i = 12; i < 24; i++) {
+                Labels.get(i).setIcon(new ImageIcon(Html.getImage().getScaledInstance(Labels.get(i).getWidth(), Labels.get(i).getHeight(), Image.SCALE_SMOOTH)));
+            }
+            
         }
-
     }
-
+            
     public void BotonesVisibles() {
         Siguiente.setVisible(true);
         Atras.setVisible(false);
@@ -560,6 +545,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
     private void ProtocolosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProtocolosMouseEntered
 
         Contador = 0;
+        Texto();
+
         VisibleProtocolo();
         Visible();
         Morgan = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/redes.wav"));
@@ -569,6 +556,8 @@ public class PaginaPricipal extends javax.swing.JFrame {
 
     private void HTMLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HTMLMouseEntered
         Contador = 1;
+        Texto();
+
         VisibleHTML();
         Visible();
         Morgan = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/html.wav"));

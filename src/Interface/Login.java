@@ -6,7 +6,6 @@ import java.awt.KeyEventPostProcessor;
 import java.awt.KeyboardFocusManager;
 import java.awt.event.KeyEvent;
 import javax.swing.InputMap;
-import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 public class Login extends javax.swing.JFrame {
@@ -237,6 +236,11 @@ public class Login extends javax.swing.JFrame {
         enviar.setFont(new java.awt.Font("Segoe UI Light", 0, 18)); // NOI18N
         enviar.setForeground(new java.awt.Color(255, 255, 255));
         enviar.setText("Iniciar");
+        enviar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enviarMouseClicked(evt);
+            }
+        });
         enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enviarActionPerformed(evt);
@@ -260,13 +264,10 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void IconoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconoMouseClicked
-
         System.exit(0);
-
     }//GEN-LAST:event_IconoMouseClicked
 
     private void LoginCajaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LoginCajaMouseClicked
-
         LoginCaja.setText("");
     }//GEN-LAST:event_LoginCajaMouseClicked
 
@@ -285,26 +286,20 @@ public class Login extends javax.swing.JFrame {
         String Contraseña = "";
 
         for (int Letra = 0; Letra < PasswordCaja.getPassword().length; Letra++) {
-
             Contraseña += PasswordCaja.getPassword()[Letra];
-
         }
 
         if (Login.equals(LoginCaja.getText()) && ContraseñaValida.equals(Contraseña)) {
-
         
             PaginaPricipal VentanaPrincipal = new PaginaPricipal();
             VentanaPrincipal.setVisible(true);
+            dispose();
+
             Morgan = java.applet.Applet.newAudioClip(getClass().getResource("/Sonidos/Bienvenida.wav"));
             Morgan.play();
-            
-            dispose();
-            
-        } else {
-            
+        } else { 
             AcesoDenegado Ventana = new AcesoDenegado();
             Ventana.setVisible(true);
-
         }
 
     }//GEN-LAST:event_enviarActionPerformed
@@ -312,6 +307,11 @@ public class Login extends javax.swing.JFrame {
     private void enviarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_enviarKeyPressed
         
     }//GEN-LAST:event_enviarKeyPressed
+
+    private void enviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enviarMouseClicked
+        
+        
+    }//GEN-LAST:event_enviarMouseClicked
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
