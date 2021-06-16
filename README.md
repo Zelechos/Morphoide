@@ -3,6 +3,7 @@
 Pragmatic Morphoide is a specialized software development learning platform for learning about programming and web development at a very high level.
 ![](https://raw.githubusercontent.com/Zelechos/PragmaticMorphoide/master/src/Imagenes/ScreenPrag.png)
 ### Current State 
+----------------------------------------------------------------------------------------------------
 |  Date | Commit  | Description |
 | ------------- | ------------- | ------------- |
 | 10/26/2020  | Version 0.0.7  | is currently under development |
