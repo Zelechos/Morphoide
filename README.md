@@ -18,3 +18,5 @@ Pragmatic Morphoide is a specialized software development learning platform for 
 - [Facebook](https://www.facebook.com/PragmaticCodersGroup "Facebook")
 - [Instagram](https://www.instagram.com/zelechos/ "Instagram")
 - [Linkedin](https://www.linkedin.com/in/alex-tumiri-huanca-6462851b0/ "Linkedin")
+
+#Preuba
