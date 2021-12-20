@@ -15,9 +15,9 @@
 ## Information about folders
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
-- [Morphoide](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
-- [PragmaticMorphoideInterface](https://github.com/Zelechos/PragmaticMorphoide/tree/master/PragmaticMorphoideInterface)
-- [TestMorphoide](https://github.com/Zelechos/PragmaticMorphoide/tree/master/TestMorphoide)
+- [Morphoide (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
+- [PragmaticMorphoideInterface (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/PragmaticMorphoideInterface)
+- [TestMorphoide (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/TestMorphoide)
 
 ## Current Version
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
