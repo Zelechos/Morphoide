@@ -7,29 +7,44 @@ package morphoide;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Morphoide{
 
 /**
  * Morphoide it is a static class to handle the instance in a more accessible way
  * that works with static methods easy to instantiate and use with different 
  * functionalities, routine, transformations, mathematical operations and more ...
- */    
+ */
+
+public final class Morphoide{
+
+//---------------------------------------------------------------
+//                          METHODS    
+//---------------------------------------------------------------
+    
+    /**
+     * @method separationByTwoPoints 
+     * @function Sirve para separar dos valores y introducirlos en un List
+     * @example "string : number"
+     * @param text
+     * @return String[]
+     */
+    public static String[] separationByTwoPoints(String text) {
+        String[] values = text.split("\\:");
+        return values;
+    }
+    
+//---------------------------------------------------------------
+//                     production up to here    
+//---------------------------------------------------------------    
+    
     
     /*
     
     ejemplo:
-    "introducir : 2"
+    
     esta subrutina obtiene el numero 2 y la tranforma a entero 
     y lo introduce en una Arraylist de enteros
      */
-    
-    /**
-     * utina Introducir Sirve para en base a un ArrayList separar el numero 
-     * de un String
-     * @param Mensaje
-     * @return exito : 
-     */
-    public static String Introducir(String Mensaje) {
+    public static String devolverUnvalor(String Mensaje) {
         List ListaNumeros = new ArrayList();
         int Valor = ReturnValue(Mensaje);
         ListaNumeros.add(Valor);

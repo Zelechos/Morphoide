@@ -14,9 +14,23 @@ public class TestMorphoide {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+
         
-        System.out.println(Morphoide.Factorial(9));
+        /**
+         * @function metodo nos devolvera un array de tipo de String 
+         * con los valores que estan separados por los dos puntos ":"
+         * @param testText
+         * @return String[]
+         * 
+         */
+        
+        String testText = "Library : Morphoide";
+        String[] array = Morphoide.separationByTwoPoints(testText);
+        
+        System.out.println(" texto => " + testText + 
+                "\n longitud : " + array.length + 
+                "\n primer valor : " + array[0] + 
+                "\n segundo valor : "+array[1]);
         
         
     }
