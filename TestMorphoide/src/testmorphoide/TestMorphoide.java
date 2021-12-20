@@ -18,6 +18,7 @@ public class TestMorphoide {
         
         System.out.println(Morphoide.Factorial(9));
         
+        
     }
     
 }

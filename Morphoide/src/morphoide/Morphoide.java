@@ -11,14 +11,23 @@ public final class Morphoide{
 
 /**
  * Morphoide it is a static class to handle the instance in a more accessible way
+ * that works with static methods easy to instantiate and use with different 
+ * functionalities, routine, transformations, mathematical operations and more ...
  */    
     
     /*
-    Subrutina Introducir Sirve para en base a un ArrayList separe el numero de un String
+    
     ejemplo:
     "introducir : 2"
     esta subrutina obtiene el numero 2 y la tranforma a entero 
     y lo introduce en una Arraylist de enteros
+     */
+    
+    /**
+     * utina Introducir Sirve para en base a un ArrayList separar el numero 
+     * de un String
+     * @param Mensaje
+     * @return exito : 
      */
     public static String Introducir(String Mensaje) {
         List ListaNumeros = new ArrayList();
@@ -26,6 +35,8 @@ public final class Morphoide{
         ListaNumeros.add(Valor);
         return "exito : " + true;
     }
+    
+    
 
     //Subrutina Invertir sirve para en reconocer si un Arraylist de tipo string tiene elementos
     public static String Invertir(ArrayList Cadena) {
