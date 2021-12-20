@@ -13,30 +13,33 @@
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
 ## Download Morphoide
-<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
-
 <a href="https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.1.4/Morphoide.jar">
-  <img align="center" src="https://user-images.githubusercontent.com/41464891/146724369-d0a1f428-f910-4738-985f-1cf5c1f48933.png" alt="button"/>
+  <img align="center" src="https://user-images.githubusercontent.com/41464891/146724369-d0a1f428-f910-4738-985f-1cf5c1f48933.png" alt="button" />
 </a>
+
   
 <!-- ### [Morphoide v0.1.4](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.1.4/Morphoide.jar) -->
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
 ## Information about folders
-<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
 - [Morphoide (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
 - [PragmaticMorphoideInterface (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/PragmaticMorphoideInterface)
 - [TestMorphoide (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/TestMorphoide)
 
-## Current Version
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+## Current Version
+
 
 |  Date | Version  | Description |
 | ------------- | ------------- | ------------- |
 | 20/12/2021  | v0.1.4  | Create method separationByTwoPoints()  |
 
-## Creator Information 👨‍💻
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+## Creator Information 👨‍💻
+
 
 - [Web](https://zelechos.github.io/PragmaticCoder/ "Web")
 - [GitHub](https://github.com/Zelechos "GitHub")
