@@ -13,11 +13,9 @@
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
 ## Download Morphoide
-
-[Morphoide v0.1.4](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.1.4/Morphoide.jar)
-
-
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+### [Morphoide v0.1.4](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.1.4/Morphoide.jar)
 
 ## Information about folders
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
