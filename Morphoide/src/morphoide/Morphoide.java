@@ -1,16 +1,18 @@
-/*
- * @Author : Pragmatic Coder
- * @Repositorio : https://github.com/Zelechos/SistemasDistribuidosATH
+/**
+ * @author: Pragmatic Coder
+ * @repository: https://github.com/Zelechos/PragmaticMorphoide
  */
-
-package Pragmatic;//NOTA : Cambiar el package dependiendo del entorno
+package morphoide;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pragmatic {
+public final class Morphoide{
 
-    //Subrutinas para realizar diferentes funcionalidades
+/**
+ * Morphoide it is a static class to handle the instance in a more accessible way
+ */    
+    
     /*
     Subrutina Introducir Sirve para en base a un ArrayList separe el numero de un String
     ejemplo:
@@ -163,3 +165,4 @@ public class Pragmatic {
     
 
 }
+
