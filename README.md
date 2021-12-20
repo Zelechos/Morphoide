@@ -1,22 +1,36 @@
-# Welcome to the official Pragmatic Morphoide repository 💻 💻 
-----------------------------------------------------------------------------------------------------
-Pragmatic Morphoide is a specialized software development learning platform for learning about programming and web development at a very high level.
-![](https://raw.githubusercontent.com/Zelechos/PragmaticMorphoide/master/src/Imagenes/ScreenPrag.png)
-### Current State 
-----------------------------------------------------------------------------------------------------
-|  Date | Commit  | Description |
+# Morphoide
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+### Morphoid It is a dynamic library open source that is easy to use and with good documentation that tries to achieve a more user-friendly experience when programming with the Java programming language.
+
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+# We love java and we want you to enjoy programming with java
+
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+## Information about folders
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+- [Morphoide](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
+- [PragmaticMorphoideInterface](https://github.com/Zelechos/PragmaticMorphoide/tree/master/PragmaticMorphoideInterface)
+- [TestMorphoide](https://github.com/Zelechos/PragmaticMorphoide/tree/master/TestMorphoide)
+
+## Current Version
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+|  Date | Version  | Description |
 | ------------- | ------------- | ------------- |
-| 10/26/2020  | Version 0.0.7  | is currently under development |
+| 20/12/2021  | v0.1.4  | Create method separationByTwoPoints()  |
 
-
-# Pragmatic Morphoide
-![](https://raw.githubusercontent.com/Zelechos/PragmaticMorphoide/master/src/Imagenes/LoginLogo.png)
-----------------------------------------------------------------------------------------------------
 ## Creator Information 👨‍💻
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+- [Web](https://zelechos.github.io/PragmaticCoder/ "Web")
 - [GitHub](https://github.com/Zelechos "GitHub")
 - [Youtube](https://www.youtube.com/channel/UCQ1D3FO4ICg6SVivOTwIe4w?view_as=subscriber "Youtube")
 - [Twitter](https://twitter.com/CoderPragmatic "Twitter")
 - [Facebook](https://www.facebook.com/PragmaticCodersGroup "Facebook")
-- [Instagram](https://www.instagram.com/zelechos/ "Instagram")
-- [Linkedin](https://www.linkedin.com/in/alex-tumiri-huanca-6462851b0/ "Linkedin")
+- [Instagram](https://www.instagram.com/pragmatic_coder/ "Instagram")
+- [Linkedin](https://www.linkedin.com/in/alex-tumiri-huanca-6234b3195/ "Linkedin")
 ----------------------------------------------------------------------------------------------------
