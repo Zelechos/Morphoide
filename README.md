@@ -14,9 +14,8 @@
 
 ## Download Morphoide
 
-[Morphoide v0.1.4](https://gist.githubusercontent.com/Zelechos/b80d85f0fc95ef694def07bff07e3018/raw/cc78c5ef7fa0d986324a73331db10af8676bf623/Morphoide.java)
+[Morphoide v0.1.4](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.1.4/Morphoide.jar)
 
-  <a href="https://gist.githubusercontent.com/Zelechos/b80d85f0fc95ef694def07bff07e3018/raw/cc78c5ef7fa0d986324a73331db10af8676bf623/Morphoide.java" download >Descargar la Cancion</a>
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
