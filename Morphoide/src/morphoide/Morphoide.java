@@ -17,7 +17,7 @@ import java.util.List;
 public final class Morphoide{
 
 //---------------------------------------------------------------
-//                          METHODS    
+//                     PREPROCESSING STRINGS     
 //---------------------------------------------------------------
     
     /**
@@ -32,36 +32,28 @@ public final class Morphoide{
         return values;
     }
     
+
+    /**
+     * @method reverseString
+     * @function Sirve para invertir los caracteres de un String
+     * @example "ethernet"
+     * @param text
+     * @return String
+     */
+    public static String reverseString(String text) {
+        int limit = text.length() - 1;
+        String reverse = "";
+        for (int letra = limit; letra >= 0; letra--) {
+            reverse += text.charAt(letra);
+        }
+        return reverse;
+    }
+    
 //---------------------------------------------------------------
 //                     production up to here    
 //---------------------------------------------------------------    
     
     
-    /*
-    
-    ejemplo:
-    
-    esta subrutina obtiene el numero 2 y la tranforma a entero 
-    y lo introduce en una Arraylist de enteros
-     */
-    public static String devolverUnvalor(String Mensaje) {
-        List ListaNumeros = new ArrayList();
-        int Valor = ReturnValue(Mensaje);
-        ListaNumeros.add(Valor);
-        return "exito : " + true;
-    }
-    
-    
-
-    //Subrutina Invertir sirve para en reconocer si un Arraylist de tipo string tiene elementos
-    public static String Invertir(ArrayList Cadena) {
-        int longitud = Cadena.size();
-        if (longitud == 0) {
-            return "resultado : no_n";
-        } else {
-            return "resultado : " + Cadena.get(1);
-        }
-    }
 
     /*
     Subrutina Cadena Sirve para en base a un ArrayList separe una cadena de un String
@@ -189,6 +181,5 @@ public final class Morphoide{
         return Sumatoria;
     }
     
-
 }
 
