@@ -27,7 +27,7 @@ public class TestMorphoide {
         String testText = "Library : Morphoide";
         String[] array = Morphoide.separationByTwoPoints(testText);
         
-        System.out.println(" texto => " + testText + 
+        System.out.println(" texto de entrada => " + testText + 
                 "\n longitud del array : " + array.length + 
                 "\n primer valor : " + array[0] + 
                 "\n segundo valor : "+array[1]);
@@ -44,8 +44,9 @@ public class TestMorphoide {
         String testText1 = "Morphoide";
         String response = Morphoide.reverseString(testText1);
         
-        System.out.println(" texto => " + testText1 +
+        System.out.println(" texto de entrada => " + testText1 +
                 "\n texto invertido : " + response);
+        
         
         
         System.out.println("----------------- returnValueString(); --------------------");
@@ -59,9 +60,8 @@ public class TestMorphoide {
         
         String testText2 = "name : Morphoide";
         String response1  = Morphoide.returnValueString(testText2);
-        System.out.println(" texto => " + testText2 +
+        System.out.println(" texto de entrada => " + testText2 +
                 "\n recuperamos su valor : " + response1);
-        
         
         
     }

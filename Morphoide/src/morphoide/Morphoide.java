@@ -21,19 +21,6 @@ public final class Morphoide{
 //---------------------------------------------------------------
     
     /**
-     * @method separationByTwoPoints 
-     * @function Sirve para separar dos valores y introducirlos en un List
-     * @example "string : number"
-     * @param text
-     * @return String[]
-     */
-    public static String[] separationByTwoPoints(String text) {
-        String[] values = text.split("\\:");
-        return values;
-    }
-    
-
-    /**
      * @method reverseString
      * @function Sirve para invertir los caracteres de un String
      * @example "ethernet"
@@ -47,6 +34,19 @@ public final class Morphoide{
             reverse += text.charAt(letra);
         }
         return reverse;
+    }
+    
+    
+    /**
+     * @method separationByTwoPoints 
+     * @function Sirve para separar dos valores y introducirlos en un List
+     * @example "string : number"
+     * @param text
+     * @return String[]
+     */
+    public static String[] separationByTwoPoints(String text) {
+        String[] values = text.split("\\:");
+        return values;
     }
     
     
@@ -69,9 +69,6 @@ public final class Morphoide{
 //---------------------------------------------------------------    
     
     
-
-    
-
     // Subrutina CopiaCadena Sirve para generar una copia y devuelve la copia osea una List
     public static List CopiaCadena(String Mensaje) {
         List CopiaCadenas = new ArrayList();
