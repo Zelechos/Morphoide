@@ -49,25 +49,28 @@ public final class Morphoide{
         return reverse;
     }
     
+    
+    /**
+     * @method returnValueString
+     * @function Sirve obtener el valor de una Tupla separa por ":"
+     * y devolvemos este valor
+     * @example "key : value"
+     * @param text
+     * @return String
+     */
+    public static String returnValueString(String text) {
+        String[] values = text.split("\\:");
+        return values[1].trim();
+    }
+    
+    
 //---------------------------------------------------------------
 //                     production up to here    
 //---------------------------------------------------------------    
     
     
 
-    /*
-    Subrutina Cadena Sirve para en base a un ArrayList separe una cadena de un String
-    ejemplo:
-    "introducir : cadena"
-    esta subrutina obtiene la "cadena" 
-    y la introduce en una Arraylist de Strings
-     */
-    public static String Cadena(String Mensaje) {
-        List ListaCadenas = new ArrayList();
-        String Cadena = ReturnCadena(Mensaje);
-        ListaCadenas.add(Cadena);
-        return "exito : " + true;
-    }
+    
 
     // Subrutina CopiaCadena Sirve para generar una copia y devuelve la copia osea una List
     public static List CopiaCadena(String Mensaje) {

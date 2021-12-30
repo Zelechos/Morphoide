@@ -28,7 +28,7 @@ public class TestMorphoide {
         String[] array = Morphoide.separationByTwoPoints(testText);
         
         System.out.println(" texto => " + testText + 
-                "\n longitud : " + array.length + 
+                "\n longitud del array : " + array.length + 
                 "\n primer valor : " + array[0] + 
                 "\n segundo valor : "+array[1]);
         
@@ -41,11 +41,27 @@ public class TestMorphoide {
          */
         
         System.out.println("----------------- reverseString(); --------------------");
-        String testText1 = "java";
+        String testText1 = "Morphoide";
         String response = Morphoide.reverseString(testText1);
         
         System.out.println(" texto => " + testText1 +
                 "\n texto invertido : " + response);
+        
+        
+        System.out.println("----------------- returnValueString(); --------------------");
+        /**
+         * @function el metodo nos devolvera el valor de una cadena separada por dos puntos
+         * de manera que ese valor sera recuperado ("key : value") en este caso solo sera 
+         * recuperado "value"
+         * @param testText2
+         * @return String
+         */
+        
+        String testText2 = "name : Morphoide";
+        String response1  = Morphoide.returnValueString(testText2);
+        System.out.println(" texto => " + testText2 +
+                "\n recuperamos su valor : " + response1);
+        
         
         
     }
