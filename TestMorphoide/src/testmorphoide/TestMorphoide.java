@@ -64,6 +64,22 @@ public class TestMorphoide {
                 "\n recuperamos su valor : " + response1);
         
         
+        
+        System.out.println("----------------- returnKeyString(); --------------------");
+        /**
+         * @function el metodo nos devolvera la llave de una cadena separada por dos puntos
+         * de manera que esa llave sera recuperada ("key : value") en este caso solo sera 
+         * recuperado "key"
+         * @param testText3
+         * @return String
+         */
+        
+        String testText3 = "library : Morphoide";
+        String response2  = Morphoide.returnKeyString(testText3);
+        System.out.println(" texto de entrada => " + testText3 +
+                "\n recuperamos su llave : " + response2);
+        
+        
     }
     
 }

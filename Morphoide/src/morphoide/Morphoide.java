@@ -52,7 +52,7 @@ public final class Morphoide{
     
     /**
      * @method returnValueString
-     * @function Sirve obtener el valor de una Tupla separa por ":"
+     * @function Sirve obtener el valor de una Tupla separada por ":"
      * y devolvemos este valor
      * @example "key : value"
      * @param text
@@ -61,6 +61,20 @@ public final class Morphoide{
     public static String returnValueString(String text) {
         String[] values = text.split("\\:");
         return values[1].trim();
+    }
+    
+    
+    /**
+     * @method returnKeyString
+     * @function Sirve obtener la llave de una Tupla separada por ":"
+     * y devolvemos esta llave
+     * @example "key : value"
+     * @param text
+     * @return String
+     */
+    public static String returnKeyString(String text) {
+        String[] Separado = text.split("\\:");
+        return Separado[0].trim();
     }
     
     
