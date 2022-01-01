@@ -30,8 +30,8 @@ public final class Morphoide{
     public static String reverseString(String text) {
         int limit = text.length() - 1;
         String reverse = "";
-        for (int letra = limit; letra >= 0; letra--) {
-            reverse += text.charAt(letra);
+        for (int lyrics = limit; lyrics >= 0; lyrics--) {
+            reverse += text.charAt(lyrics);
         }
         return reverse;
     }
@@ -77,19 +77,31 @@ public final class Morphoide{
         return Separado[0].trim();
     }
     
+    /**
+     * @method stringDestruction
+     * @function Sirve para guardar todas las letras de la cadena 
+     * en una List
+     * @example "texto" => [t,e,x,t,o]
+     * @param text
+     * @return List
+     */
+    public static List stringDestruction(String text) {
+        List cloneList = new ArrayList();
+        int limit = text.length();
+        
+        for (int lyrics = 0; lyrics < limit; lyrics++) {
+            cloneList.add(text.charAt(lyrics));
+        }
+        
+        return cloneList;
+    }
     
 //---------------------------------------------------------------
 //                     production up to here    
 //---------------------------------------------------------------    
     
     
-    // Subrutina CopiaCadena Sirve para generar una copia y devuelve la copia osea una List
-    public static List CopiaCadena(String Mensaje) {
-        List CopiaCadenas = new ArrayList();
-        String Cadena = ReturnCadena(Mensaje);
-        CopiaCadenas.add(Cadena);
-        return CopiaCadenas;
-    }
+    
 
     //Subrutina ReturnFactorial realiza el Factorial de una Numero y lo retorna com Un string
     public static String ReturnFactorial(int Mensaje) {
@@ -123,7 +135,7 @@ public final class Morphoide{
         if (longitud == 0) {
             return "resultado : no_n";
         } else {
-            return "resultado : " + UpperCaseFirst(ReturnCadena(Mensaje));
+            return "resultado : " + UpperCaseFirst(Mensaje);
         }
     }
 
@@ -146,11 +158,7 @@ public final class Morphoide{
         return Texto;
     }
 
-    //Subrutina para Recuperar el comando donde "comando : valor"
-    public static String ReturnComand(String comando) {
-        String[] Separado = comando.split("\\:");
-        return Separado[0].trim();
-    }
+    
 
     //Subrutina para Recuperar el valor de tipo entero donde "comando : valor"
     public static int ReturnValue(String valor) {
@@ -159,11 +167,6 @@ public final class Morphoide{
         return numero;
     }
 
-    //Subrutina para Recuperar el valor de tipo string donde "comando : valor"
-    public static String ReturnCadena(String cadena) {
-        String[] Separado = cadena.split("\\:");
-        return Separado[1].trim();
-    }
 
     //Subrutina que Genera el Factorial
     public static int Factorial(int Number) {

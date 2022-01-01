@@ -6,6 +6,7 @@
 
 package testmorphoide;
 
+import java.util.List;
 import morphoide.Morphoide;
 
 public class TestMorphoide {
@@ -78,6 +79,20 @@ public class TestMorphoide {
         String response2  = Morphoide.returnKeyString(testText3);
         System.out.println(" texto de entrada => " + testText3 +
                 "\n recuperamos su llave : " + response2);
+        
+        
+        System.out.println("----------------- stringDestruction(); --------------------");
+        /**
+         * @function el metodo nos devolvera las letras de la cadena 
+         * introducida dentro de la list
+         * recuperado "[t,e,x,t,o]"
+         * @param testText4
+         * @return List
+         */
+        String testText4 = "Pragmatic Coder";
+        List response3  = Morphoide.stringDestruction(testText4);
+        System.out.println(" texto de entrada => " + testText4 +
+                "\n recuperamos las letras en un List : " + response3);
         
         
     }
