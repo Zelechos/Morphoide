@@ -181,7 +181,6 @@ public final class Morphoide{
         return Texto;
     }
 
-    
 
     //Subrutina para Recuperar el valor de tipo entero donde "comando : valor"
     public static int ReturnValue(String valor) {
