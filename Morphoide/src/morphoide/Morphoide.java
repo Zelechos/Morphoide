@@ -96,6 +96,29 @@ public final class Morphoide{
         return cloneList;
     }
     
+    
+    /**
+     * @method stringConstruction
+     * @function Sirve para crear un cadena con los elementos de 
+     * una List
+     * @example [t,e,x,t,o] => "texto"
+     * @param texts
+     * @return String
+     */
+    public static String stringConstruction(String[] texts) {
+        String construction = "";
+        int limit = texts.length;
+        
+        for (int lyrics = 0; lyrics < limit; lyrics++) {
+            construction += texts[lyrics];
+        }
+        
+        return construction;
+    }
+    
+    
+    
+    
 //---------------------------------------------------------------
 //                     production up to here    
 //---------------------------------------------------------------    

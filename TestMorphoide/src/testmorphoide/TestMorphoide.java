@@ -6,6 +6,7 @@
 
 package testmorphoide;
 
+import java.util.ArrayList;
 import java.util.List;
 import morphoide.Morphoide;
 
@@ -93,6 +94,30 @@ public class TestMorphoide {
         List response3  = Morphoide.stringDestruction(testText4);
         System.out.println(" texto de entrada => " + testText4 +
                 "\n recuperamos las letras en un List : " + response3);
+        
+        
+        System.out.println("----------------- stringConstruction(); --------------------");
+        /**
+         * @function el metodo nos devolvera una cadena con los elementos que estaban 
+         * dentro de un List de Tipo String
+         * recuperado "texto"
+         * @param listText
+         * @return String
+         */
+        
+        // Creamos un array para realizar la prueba
+        String[] listText = new String[]{"M","o", "r", "p", "h", "o", "i", "d", "e"};
+        
+        // Creamos un string para mostrar los elementos del array        
+        String showListText = "[";
+        for (int letra = 0; letra < listText.length; letra++) {
+            showListText += listText[letra]+",";
+        }
+        showListText += "]";
+        
+        String response4  = Morphoide.stringConstruction(listText);
+        System.out.println(" Array de entrada => " + showListText +
+                "\n recuperamos la cadena : " + response4);
         
         
     }
