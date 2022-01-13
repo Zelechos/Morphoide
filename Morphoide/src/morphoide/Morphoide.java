@@ -116,6 +116,44 @@ public final class Morphoide{
         return construction;
     }
     
+    /**
+     * @method stringReverseDestruction
+     * @function Sirve para guardar todas las letras invertidas de 
+     * la cadena en una List
+     * @example "texto" => [o,t,x,e,t]
+     * @param text
+     * @return List
+     */
+    public static List stringReverseDestruction(String text) {
+        List cloneList = new ArrayList();
+        int limit = text.length() - 1;
+        for(int lyrics = limit; lyrics >= 0; lyrics--) {
+            cloneList.add(text.charAt(lyrics));
+        }
+        
+        return cloneList;
+    }
+    
+    
+    /**
+     * @method stringReverseConstruction
+     * @function Sirve para crear un cadena con los elementos de 
+     * una List invertidos
+     * @example [t,e,x,t,o] => "otxet"
+     * @param texts
+     * @return String
+     */
+    public static String stringReserveConstruction(String[] texts) {
+        String construction = "";
+        int limit = texts.length - 1;
+        for (int lyrics = limit; lyrics >= 0; lyrics--) {
+            construction += texts[lyrics];
+        }
+        
+        return construction;
+    }
+    
+    
 //---------------------------------------------------------------
 //                     production up to here    
 //---------------------------------------------------------------    

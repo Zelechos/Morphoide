@@ -110,7 +110,7 @@ public class TestMorphoide {
         
         // Creamos un string para mostrar los elementos del array        
         String showListText = "[";
-        for (int letra = 0; letra < listText.length; letra++) {
+        for(int letra = 0; letra < listText.length; letra++) {
             showListText += listText[letra]+",";
         }
         showListText += "]";
@@ -118,6 +118,46 @@ public class TestMorphoide {
         String response4  = Morphoide.stringConstruction(listText);
         System.out.println(" Array de entrada => " + showListText +
                 "\n recuperamos la cadena : " + response4);
+        
+        
+        System.out.println("----------------- stringReverseDestruction(); --------------------");
+        /**
+         * @function el metodo nos devolvera una cadena con los elementos invertidos que
+         * estaban dentro de un List de Tipo String
+         * recuperado "otxet" => [o,t,x,e,t]
+         * @param testText5
+         * @return String
+         */
+        
+        String testText5 = "Pragmatic Coder";
+        List response5  = Morphoide.stringReverseDestruction(testText5);
+        System.out.println(" texto de entrada => " + testText5 +
+                "\n recuperamos las letras invertidas en un List : " + response5);
+        
+        
+        System.out.println("----------------- stringReverseConstruction(); --------------------");
+        /**
+         * @function el metodo nos devolvera una cadena con los elementos que estaban 
+         * dentro de un List invertidos de Tipo String
+         * recuperado [t,e,x,t,o] => "otxet"
+         * @param listText1
+         * @return String
+         */
+        
+        // Creamos un array para realizar la prueba
+        String[] listText1 = new String[]{"M","o", "r", "p", "h", "o", "i", "d", "e"};
+        
+        // Creamos un string para mostrar los elementos del array        
+        String showListText2 = "[";
+        for(int letra = 0; letra < listText.length; letra++) {
+            showListText2 += listText[letra]+",";
+        }
+        showListText2 += "]";
+        
+        String response6  = Morphoide.stringReserveConstruction(listText1);
+        System.out.println(" Array de entrada => " + showListText2 +
+                "\n recuperamos la cadena con los elementos invertidos : " + response6);
+        
         
         
     }
