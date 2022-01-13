@@ -116,16 +116,11 @@ public final class Morphoide{
         return construction;
     }
     
-    
-    
-    
 //---------------------------------------------------------------
 //                     production up to here    
 //---------------------------------------------------------------    
     
-    
-    
-
+  
     //Subrutina ReturnFactorial realiza el Factorial de una Numero y lo retorna com Un string
     public static String ReturnFactorial(int Mensaje) {
         int factorial = Factorial(Mensaje);
