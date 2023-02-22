@@ -1,15 +1,17 @@
-/**
- * Class to execute all the methods of the Morphoide library
- * @author: Pragmatic Coder
- * @repository: https://github.com/Zelechos/PragmaticMorphoide
- */
-
 package testmorphoide;
 
-import java.util.ArrayList;
-import java.util.List;
 import morphoide.Morphoide;
 
+import java.util.List;
+
+/**
+ * Class to test all the methods of the Morphoide library
+ *
+ * @author Alex T. H.
+ * @version v0.1.5
+ * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
+ * @since 19.0.1
+ */
 public class TestMorphoide {
 
     /**
@@ -17,40 +19,35 @@ public class TestMorphoide {
      */
     public static void main(String[] args) {
 
-        
+
         /**
          * @function el metodo nos devolvera un array de tipo de String 
          * con los valores que estan separados por los dos puntos ":"
          * @param testText
          * @return String[]
          */
-        
+
         System.out.println("----------------- separationByTwoPoints(); --------------------");
         String testText = "Library : Morphoide";
         String[] array = Morphoide.separationByTwoPoints(testText);
-        
-        System.out.println(" texto de entrada => " + testText + 
-                "\n longitud del array : " + array.length + 
-                "\n primer valor : " + array[0] + 
-                "\n segundo valor : "+array[1]);
-        
-        
+
+        System.out.println(" texto de entrada => " + testText + "\n longitud del array : " + array.length + "\n primer valor : " + array[0] + "\n segundo valor : " + array[1]);
+
+
         /**
          * @function el metodo nos devolvera un String con sus caracteres 
          * invertidos.
          * @param testText1
          * @return String
          */
-        
+
         System.out.println("----------------- reverseString(); --------------------");
         String testText1 = "Morphoide";
         String response = Morphoide.reverseString(testText1);
-        
-        System.out.println(" texto de entrada => " + testText1 +
-                "\n texto invertido : " + response);
-        
-        
-        
+
+        System.out.println(" texto de entrada => " + testText1 + "\n texto invertido : " + response);
+
+
         System.out.println("----------------- returnValueString(); --------------------");
         /**
          * @function el metodo nos devolvera el valor de una cadena separada por dos puntos
@@ -59,14 +56,12 @@ public class TestMorphoide {
          * @param testText2
          * @return String
          */
-        
+
         String testText2 = "name : Morphoide";
-        String response1  = Morphoide.returnValueString(testText2);
-        System.out.println(" texto de entrada => " + testText2 +
-                "\n recuperamos su valor : " + response1);
-        
-        
-        
+        String response1 = Morphoide.returnValueString(testText2);
+        System.out.println(" texto de entrada => " + testText2 + "\n recuperamos su valor : " + response1);
+
+
         System.out.println("----------------- returnKeyString(); --------------------");
         /**
          * @function el metodo nos devolvera la llave de una cadena separada por dos puntos
@@ -75,13 +70,12 @@ public class TestMorphoide {
          * @param testText3
          * @return String
          */
-        
+
         String testText3 = "library : Morphoide";
-        String response2  = Morphoide.returnKeyString(testText3);
-        System.out.println(" texto de entrada => " + testText3 +
-                "\n recuperamos su llave : " + response2);
-        
-        
+        String response2 = Morphoide.returnKeyString(testText3);
+        System.out.println(" texto de entrada => " + testText3 + "\n recuperamos su llave : " + response2);
+
+
         System.out.println("----------------- stringDestruction(); --------------------");
         /**
          * @function el metodo nos devolvera las letras de la cadena 
@@ -91,11 +85,10 @@ public class TestMorphoide {
          * @return List
          */
         String testText4 = "Pragmatic Coder";
-        List response3  = Morphoide.stringDestruction(testText4);
-        System.out.println(" texto de entrada => " + testText4 +
-                "\n recuperamos las letras en un List : " + response3);
-        
-        
+        List response3 = Morphoide.stringDestruction(testText4);
+        System.out.println(" texto de entrada => " + testText4 + "\n recuperamos las letras en un List : " + response3);
+
+
         System.out.println("----------------- stringConstruction(); --------------------");
         /**
          * @function el metodo nos devolvera una cadena con los elementos que estaban 
@@ -104,22 +97,21 @@ public class TestMorphoide {
          * @param listText
          * @return String
          */
-        
+
         // Creamos un array para realizar la prueba
-        String[] listText = new String[]{"M","o", "r", "p", "h", "o", "i", "d", "e"};
-        
+        String[] listText = new String[]{"M", "o", "r", "p", "h", "o", "i", "d", "e"};
+
         // Creamos un string para mostrar los elementos del array        
         String showListText = "[";
-        for(int letra = 0; letra < listText.length; letra++) {
-            showListText += listText[letra]+",";
+        for (int letra = 0; letra < listText.length; letra++) {
+            showListText += listText[letra] + ",";
         }
         showListText += "]";
-        
-        String response4  = Morphoide.stringConstruction(listText);
-        System.out.println(" Array de entrada => " + showListText +
-                "\n recuperamos la cadena : " + response4);
-        
-        
+
+        String response4 = Morphoide.stringConstruction(listText);
+        System.out.println(" Array de entrada => " + showListText + "\n recuperamos la cadena : " + response4);
+
+
         System.out.println("----------------- stringReverseDestruction(); --------------------");
         /**
          * @function el metodo nos devolvera una cadena con los elementos invertidos que
@@ -128,13 +120,12 @@ public class TestMorphoide {
          * @param testText5
          * @return String
          */
-        
+
         String testText5 = "Pragmatic Coder";
-        List response5  = Morphoide.stringReverseDestruction(testText5);
-        System.out.println(" texto de entrada => " + testText5 +
-                "\n recuperamos las letras invertidas en un List : " + response5);
-        
-        
+        List response5 = Morphoide.stringReverseDestruction(testText5);
+        System.out.println(" texto de entrada => " + testText5 + "\n recuperamos las letras invertidas en un List : " + response5);
+
+
         System.out.println("----------------- stringReverseConstruction(); --------------------");
         /**
          * @function el metodo nos devolvera una cadena con los elementos que estaban 
@@ -143,23 +134,21 @@ public class TestMorphoide {
          * @param listText1
          * @return String
          */
-        
+
         // Creamos un array para realizar la prueba
-        String[] listText1 = new String[]{"M","o", "r", "p", "h", "o", "i", "d", "e"};
-        
+        String[] listText1 = new String[]{"M", "o", "r", "p", "h", "o", "i", "d", "e"};
+
         // Creamos un string para mostrar los elementos del array        
         String showListText2 = "[";
-        for(int letra = 0; letra < listText.length; letra++) {
-            showListText2 += listText[letra]+",";
+        for (int letra = 0; letra < listText.length; letra++) {
+            showListText2 += listText[letra] + ",";
         }
         showListText2 += "]";
-        
-        String response6  = Morphoide.stringReserveConstruction(listText1);
-        System.out.println(" Array de entrada => " + showListText2 +
-                "\n recuperamos la cadena con los elementos invertidos : " + response6);
-        
-        
-        
+
+        String response6 = Morphoide.stringReserveConstruction(listText1);
+        System.out.println(" Array de entrada => " + showListText2 + "\n recuperamos la cadena con los elementos invertidos : " + response6);
+
+
     }
-    
+
 }
