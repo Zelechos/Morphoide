@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Morphoide">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Morphoide/dist/Morphoide.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

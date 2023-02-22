@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="PragmaticMorphoide">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/PragmaticMorphoideInterface/dist/PragmaticMorphoide.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

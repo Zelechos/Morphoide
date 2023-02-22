@@ -1,147 +1,140 @@
-/**
- * @author: Pragmatic Coder
- * @repository: https://github.com/Zelechos/PragmaticMorphoide
- */
 package morphoide;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
 /**
  * Morphoide it is a static class to handle the instance in a more accessible way
- * that works with static methods easy to instantiate and use with different 
- * functionalities, routine, transformations, mathematical operations and more ...
+ * that works with static methods easy to instantiate and use with different
+ * functionalities, routine, transformations, mathematical operations and more
+ *
+ * @author Alex T. H.
+ * @version v0.1.5
+ * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
+ * @since 19.0.1
  */
 
-public final class Morphoide{
+public final class Morphoide {
 
 //---------------------------------------------------------------
 //                     PREPROCESSING STRINGS     
 //---------------------------------------------------------------
-    
+
     /**
-     * @method reverseString
-     * @function Sirve para invertir los caracteres de un String
-     * @example "ethernet"
-     * @param text
-     * @return String
+     * Sirve para invertir los caracteres de un String
+     *
+     * @param text "ether"
+     * @return String "rehte"
      */
     public static String reverseString(String text) {
         int limit = text.length() - 1;
         String reverse = "";
-        for (int lyrics = limit; lyrics >= 0; lyrics--) {
+        for (var lyrics = limit; lyrics >= 0; lyrics--) {
             reverse += text.charAt(lyrics);
         }
         return reverse;
     }
-    
-    
+
+
     /**
-     * @method separationByTwoPoints 
-     * @function Sirve para separar dos valores y introducirlos en un List
-     * @example "string : number"
-     * @param text
-     * @return String[]
+     * Subrutina para separar dos valores comprendidos
+     * entre (:) e introducirlos en una List
+     *
+     * @param text "key : value"
+     * @return String[] ["key" , "value"]
      */
     public static String[] separationByTwoPoints(String text) {
         String[] values = text.split("\\:");
         return values;
     }
-    
-    
+
+
     /**
-     * @method returnValueString
-     * @function Sirve obtener el valor de una Tupla separada por ":"
-     * y devolvemos este valor
-     * @example "key : value"
-     * @param text
-     * @return String
+     * Subrutina obtener el valor de una tupla separada
+     * por (:) y devolver el valor
+     *
+     * @param text "key : value"
+     * @return String "value"
      */
     public static String returnValueString(String text) {
         String[] values = text.split("\\:");
         return values[1].trim();
     }
-    
-    
+
+
     /**
-     * @method returnKeyString
-     * @function Sirve obtener la llave de una Tupla separada por ":"
-     * y devolvemos esta llave
-     * @example "key : value"
-     * @param text
-     * @return String
+     * Subrutina obtener la llave de una tupla separada
+     * por (:) y devolver la llave
+     *
+     * @param text "key : value"
+     * @return String "key"
      */
     public static String returnKeyString(String text) {
         String[] Separado = text.split("\\:");
         return Separado[0].trim();
     }
-    
+
     /**
-     * @method stringDestruction
-     * @function Sirve para guardar todas las letras de la cadena 
-     * en una List
-     * @example "texto" => [t,e,x,t,o]
-     * @param text
-     * @return List
+     * Subrutina para guardar todas las letras de una
+     * String en una List
+     *
+     * @param text "java"
+     * @return List ["j","a","v","a"]
      */
     public static List stringDestruction(String text) {
         List cloneList = new ArrayList();
         int limit = text.length();
-        
+
         for (int lyrics = 0; lyrics < limit; lyrics++) {
             cloneList.add(text.charAt(lyrics));
         }
-        
+
         return cloneList;
     }
-    
-    
+
+
     /**
-     * @method stringConstruction
-     * @function Sirve para crear un cadena con los elementos de 
-     * una List
-     * @example [t,e,x,t,o] => "texto"
-     * @param texts
-     * @return String
+     * Subrutina para crear un String con los elementos
+     * de una List
+     *
+     * @param texts ["t", "e", "x", "t"]
+     * @return String "text"
      */
     public static String stringConstruction(String[] texts) {
         String construction = "";
         int limit = texts.length;
-        
+
         for (int lyrics = 0; lyrics < limit; lyrics++) {
             construction += texts[lyrics];
         }
-        
+
         return construction;
     }
-    
+
     /**
-     * @method stringReverseDestruction
-     * @function Sirve para guardar todas las letras invertidas de 
-     * la cadena en una List
-     * @example "texto" => [o,t,x,e,t]
-     * @param text
-     * @return List
+     * Subrutina para guardar todas las letras invertidas
+     * de un String en una List
+     *
+     * @param text "texto"
+     * @return List ["o","t","x","e","t"]
      */
     public static List stringReverseDestruction(String text) {
         List cloneList = new ArrayList();
         int limit = text.length() - 1;
-        for(int lyrics = limit; lyrics >= 0; lyrics--) {
+        for (int lyrics = limit; lyrics >= 0; lyrics--) {
             cloneList.add(text.charAt(lyrics));
         }
-        
+
         return cloneList;
     }
-    
-    
+
+
     /**
-     * @method stringReverseConstruction
-     * @function Sirve para crear un cadena con los elementos de 
-     * una List invertidos
-     * @example [t,e,x,t,o] => "otxet"
-     * @param texts
-     * @return String
+     * Subrutina para crear un String con los elementos
+     * de una List invertidos
+     *
+     * @param texts [t, e, x, t, o]
+     * @return String "otxet"
      */
     public static String stringReserveConstruction(String[] texts) {
         String construction = "";
@@ -149,16 +142,16 @@ public final class Morphoide{
         for (int lyrics = limit; lyrics >= 0; lyrics--) {
             construction += texts[lyrics];
         }
-        
+
         return construction;
     }
-    
-    
+
+
 //---------------------------------------------------------------
 //                     production up to here    
 //---------------------------------------------------------------    
-    
-  
+
+
     //Subrutina ReturnFactorial realiza el Factorial de una Numero y lo retorna com Un string
     public static String ReturnFactorial(int Mensaje) {
         int factorial = Factorial(Mensaje);
@@ -243,7 +236,7 @@ public final class Morphoide{
         }
         return Sucesion;
     }
-    
+
     //Subrutina que Genera la Sumatoria de un Numero
     public int Sumatoria(int Number) {
         int Sumatoria = 0;
@@ -252,6 +245,6 @@ public final class Morphoide{
         }
         return Sumatoria;
     }
-    
+
 }
 
