@@ -151,8 +151,28 @@ public class TestMorphoide {
 
         System.out.println("----------------- getACharacterFromString(); --------------------");
         String exampleString = "Hello";
-        System.out.println(Morphoide.getACharacterFromString(exampleString, 0));
+        System.out.println(Morphoide.getACharacterFromString(exampleString, 4));
 
+
+        System.out.println("----------------- getALastCharacterFromString(); --------------------");
+        String exampleString1 = "Hello";
+        System.out.println(Morphoide.getALastCharacterFromString(exampleString1));
+
+        System.out.println("----------------- getAFirstCharacterFromString(); --------------------");
+        String exampleString2 = "Hello";
+        System.out.println(Morphoide.getAFirstCharacterFromString(exampleString2));
+
+        System.out.println("----------------- isCapicua(); --------------------");
+        String exampleString3 = "solos";
+        System.out.println(Morphoide.isCapicua(exampleString3));
+
+        System.out.println("----------------- lengthIsPar(); --------------------");
+        String exampleString4 = "Morphoid";
+        System.out.println(exampleString4.length());
+        System.out.println(Morphoide.lengthIsPar(exampleString4));
+
+        System.out.println("----------------- lengthIsImpar(); --------------------");
+        System.out.println(Morphoide.lengthIsImpar(exampleString4));
 
     }
 

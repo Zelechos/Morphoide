@@ -22,6 +22,7 @@ public final class Morphoide {
 //|                                                             |
 //---------------------------------------------------------------
 
+
     /**
      * Sirve para invertir los caracteres de un String
      *
@@ -76,6 +77,7 @@ public final class Morphoide {
         return Separado[0].trim();
     }
 
+
     /**
      * Subrutina para guardar todas las letras de una
      * String en una List
@@ -108,6 +110,7 @@ public final class Morphoide {
         }
         return construction;
     }
+
 
     /**
      * Subrutina para guardar todas las letras invertidas
@@ -150,8 +153,66 @@ public final class Morphoide {
      * @param text "Hello", index 0
      * @return String "H"
      */
+
     public static String getACharacterFromString(String text, int index) {
         return String.valueOf(text.charAt(index));
+    }
+
+
+    /**
+     * Subrutina para obtener el ultimo caracter de un String
+     *
+     * @param text "Hello"
+     * @return String "o"
+     */
+    public static String getALastCharacterFromString(String text) {
+        return String.valueOf(text.charAt(text.length() - 1));
+    }
+
+
+    /**
+     * Subrutina para obtener el primer caracter de un String
+     *
+     * @param text "Hello"
+     * @return String "H"
+     */
+    public static String getAFirstCharacterFromString(String text) {
+        return String.valueOf(text.charAt(0));
+    }
+
+
+    /**
+     * Subrutina para saber si un String es Capicua
+     *
+     * @param text "Morphoide"
+     * @return boolean false
+     */
+    public static boolean isCapicua(String text) {
+        return text.equals(reverseString(text));
+    }
+
+
+    /**
+     * Subrutina para saber si la longitud de un String
+     * es Par
+     *
+     * @param text "Morphoide"
+     * @return boolean false
+     */
+    public static boolean lengthIsPar(String text) {
+        return text.length() % 2 == 0;
+    }
+
+
+    /**
+     * Subrutina para saber si la longitud de un String
+     * es Impar
+     *
+     * @param text "Morphoide"
+     * @return boolean true
+     */
+    public static boolean lengthIsImpar(String text) {
+        return text.length() % 2 != 0;
     }
 
 
