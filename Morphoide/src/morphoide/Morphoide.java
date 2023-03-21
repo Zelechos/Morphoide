@@ -17,7 +17,9 @@ import java.util.List;
 public final class Morphoide {
 
 //---------------------------------------------------------------
-//                     PREPROCESSING STRINGS     
+//|                                                             |
+//|                    MORPHEAR STRINGS                         |
+//|                                                             |
 //---------------------------------------------------------------
 
     /**
@@ -84,11 +86,9 @@ public final class Morphoide {
     public static List stringDestruction(String text) {
         List cloneList = new ArrayList();
         int limit = text.length();
-
         for (int lyrics = 0; lyrics < limit; lyrics++) {
             cloneList.add(text.charAt(lyrics));
         }
-
         return cloneList;
     }
 
@@ -103,11 +103,9 @@ public final class Morphoide {
     public static String stringConstruction(String[] texts) {
         String construction = "";
         int limit = texts.length;
-
         for (int lyrics = 0; lyrics < limit; lyrics++) {
             construction += texts[lyrics];
         }
-
         return construction;
     }
 
@@ -124,7 +122,6 @@ public final class Morphoide {
         for (int lyrics = limit; lyrics >= 0; lyrics--) {
             cloneList.add(text.charAt(lyrics));
         }
-
         return cloneList;
     }
 
@@ -142,8 +139,19 @@ public final class Morphoide {
         for (int lyrics = limit; lyrics >= 0; lyrics--) {
             construction += texts[lyrics];
         }
-
         return construction;
+    }
+
+
+    /**
+     * Subrutina para obtener el caracter de un String
+     * dependiendo el indice introducido
+     *
+     * @param text "Hello", index 0
+     * @return String "H"
+     */
+    public static String getACharacterFromString(String text, int index) {
+        return String.valueOf(text.charAt(index));
     }
 
 

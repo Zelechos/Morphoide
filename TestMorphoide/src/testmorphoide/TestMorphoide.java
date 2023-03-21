@@ -149,6 +149,11 @@ public class TestMorphoide {
         System.out.println(" Array de entrada => " + showListText2 + "\n recuperamos la cadena con los elementos invertidos : " + response6);
 
 
+        System.out.println("----------------- getACharacterFromString(); --------------------");
+        String exampleString = "Hello";
+        System.out.println(Morphoide.getACharacterFromString(exampleString, 0));
+
+
     }
 
 }
