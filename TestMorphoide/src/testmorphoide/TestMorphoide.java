@@ -155,7 +155,7 @@ public class TestMorphoide {
 
 
         System.out.println("----------------- getALastCharacterFromString(); --------------------");
-        String exampleString1 = "Hello";
+        String exampleString1 = "Hellos";
         System.out.println(Morphoide.getALastCharacterFromString(exampleString1));
 
         System.out.println("----------------- getAFirstCharacterFromString(); --------------------");
@@ -169,11 +169,31 @@ public class TestMorphoide {
         System.out.println("----------------- lengthIsPar(); --------------------");
         String exampleString4 = "Morphoid";
         System.out.println(exampleString4.length());
-        System.out.println(Morphoide.lengthIsPar(exampleString4));
+        System.out.println(Morphoide.lengthIsPair(exampleString4));
 
         System.out.println("----------------- lengthIsImpar(); --------------------");
-        System.out.println(Morphoide.lengthIsImpar(exampleString4));
+        System.out.println(Morphoide.lengthIsOdd(exampleString4));
 
+        System.out.println("----------------- upperCaseFirstCharacter(); --------------------");
+        System.out.println(Morphoide.upperCaseFirstCharacter(exampleString3));
+
+        System.out.println("----------------- upperCaseLastCharacter(); --------------------");
+        System.out.println(Morphoide.upperCaseLastCharacter(exampleString3));
+
+        System.out.println("----------------- splitStringInTwo(); --------------------");
+        System.out.println(Morphoide.splitStringInTwo(exampleString3));
+        System.out.println(Morphoide.splitStringInTwo(exampleString4));
+
+
+//---------------------------------------------------------------
+//|                                                             |
+//|                         MORPH LIST                          |
+//|                                                             |
+//---------------------------------------------------------------
+        List<String> list = List.of("java", "java", "rust", "javascript", "javascript");
+        System.out.println("----------------- getListOfUniqueElements(); --------------------");
+        System.out.println(Morphoide.getListOfUniqueElements(list));
+        
     }
 
 }

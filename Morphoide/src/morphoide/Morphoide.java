@@ -1,36 +1,39 @@
-package morphoide;
-
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Morphoide it is a static class to handle the instance in a more accessible way
  * that works with static methods easy to instantiate and use with different
  * functionalities, routine, transformations, mathematical operations and more
  *
  * @author Alex T. H.
- * @version v0.1.5
+ * @version v0.1.9
  * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
- * @since 19.0.1
+ * @since 20.0.0 2023-24-03
  */
+package morphoide;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public final class Morphoide {
 
+    private final static int ONE_TO_AOS = 1;
+
 //---------------------------------------------------------------
 //|                                                             |
-//|                    MORPHEAR STRINGS                         |
+//|                       MORPH STRINGS                         |
 //|                                                             |
 //---------------------------------------------------------------
 
 
     /**
-     * Sirve para invertir los caracteres de un String
+     * Subrutina para invertir los caracteres de un String
      *
      * @param text "ether"
      * @return String "rehte"
      */
     public static String reverseString(String text) {
-        int limit = text.length() - 1;
+        int limit = text.length() - ONE_TO_AOS;
         String reverse = "";
         for (var lyrics = limit; lyrics >= 0; lyrics--) {
             reverse += text.charAt(lyrics);
@@ -61,7 +64,7 @@ public final class Morphoide {
      */
     public static String returnValueString(String text) {
         String[] values = text.split("\\:");
-        return values[1].trim();
+        return values[ONE_TO_AOS].trim();
     }
 
 
@@ -117,13 +120,13 @@ public final class Morphoide {
      * de un String en una List
      *
      * @param text "texto"
-     * @return List ["o","t","x","e","t"]
+     * @return List<String> ["o","t","x","e","t"]
      */
-    public static List stringReverseDestruction(String text) {
-        List cloneList = new ArrayList();
-        int limit = text.length() - 1;
+    public static List<String> stringReverseDestruction(String text) {
+        List<String> cloneList = new ArrayList<>();
+        int limit = text.length() - ONE_TO_AOS;
         for (int lyrics = limit; lyrics >= 0; lyrics--) {
-            cloneList.add(text.charAt(lyrics));
+            cloneList.add(String.valueOf(text.charAt(lyrics)));
         }
         return cloneList;
     }
@@ -138,7 +141,7 @@ public final class Morphoide {
      */
     public static String stringReserveConstruction(String[] texts) {
         String construction = "";
-        int limit = texts.length - 1;
+        int limit = texts.length - ONE_TO_AOS;
         for (int lyrics = limit; lyrics >= 0; lyrics--) {
             construction += texts[lyrics];
         }
@@ -153,7 +156,6 @@ public final class Morphoide {
      * @param text "Hello", index 0
      * @return String "H"
      */
-
     public static String getACharacterFromString(String text, int index) {
         return String.valueOf(text.charAt(index));
     }
@@ -166,7 +168,7 @@ public final class Morphoide {
      * @return String "o"
      */
     public static String getALastCharacterFromString(String text) {
-        return String.valueOf(text.charAt(text.length() - 1));
+        return String.valueOf(text.charAt(text.length() - ONE_TO_AOS));
     }
 
 
@@ -199,7 +201,7 @@ public final class Morphoide {
      * @param text "Morphoide"
      * @return boolean false
      */
-    public static boolean lengthIsPar(String text) {
+    public static boolean lengthIsPair(String text) {
         return text.length() % 2 == 0;
     }
 
@@ -211,10 +213,76 @@ public final class Morphoide {
      * @param text "Morphoide"
      * @return boolean true
      */
-    public static boolean lengthIsImpar(String text) {
+    public static boolean lengthIsOdd(String text) {
         return text.length() % 2 != 0;
     }
 
+
+    /**
+     * Subrutina para convertir la primera letra de una
+     * string a mayuscula
+     *
+     * @param text "morphoide"
+     * @return String "Morphoide"
+     */
+    public static String upperCaseFirstCharacter(String text) {
+        char[] Caracteres = text.toCharArray();
+        Caracteres[0] = Character.toUpperCase(Caracteres[0]);
+        return new String(Caracteres);
+    }
+
+
+    /**
+     * Subrutina para convertir la ultima letra de una
+     * string a mayuscula
+     *
+     * @param text "morphoide"
+     * @return String "morphoidE"
+     */
+    public static String upperCaseLastCharacter(String text) {
+        int index = text.length() - ONE_TO_AOS;
+        char[] Caracteres = text.toCharArray();
+        Caracteres[index] = Character.toUpperCase(Caracteres[index]);
+        return new String(Caracteres);
+    }
+
+    /**
+     * Subrutina para dividir a la mitad un String y devolver cada
+     * parte en un List siempre y cuando la longitud sea Par
+     *
+     * @param text "morphoid"
+     * @return List<String> ["morp","hoid"]
+     */
+    public static List<String> splitStringInTwo(String text) {
+        StringBuilder firstText = new StringBuilder();
+        StringBuilder lastText = new StringBuilder();
+        int index = text.length() / 2;
+        if (text.length() % 2 != 0) {
+            return List.of("The text is odd");
+        }
+        for (var i = 0; i < index; i++) {
+            firstText.append(getACharacterFromString(text, i));
+            lastText.append(getACharacterFromString(text, i + index));
+        }
+        return List.of(firstText.toString(), lastText.toString());
+    }
+
+//---------------------------------------------------------------
+//|                                                             |
+//|                         MORPH LIST                          |
+//|                                                             |
+//---------------------------------------------------------------
+
+    /**
+     * Subrutina para devolver una List con elementos Unicos
+     *
+     * @param list ["java", "java", "rust", "javascript", "javascript"]
+     * @return List<String> ["java", "rust", "javascript"]
+     */
+    public static List<String> getListOfUniqueElements(List<String> list) {
+        Set<String> uniqueSet = new HashSet<>(list);
+        return uniqueSet.stream().toList();
+    }
 
 //---------------------------------------------------------------
 //                     production up to here    
@@ -241,28 +309,6 @@ public final class Morphoide {
         }
     }
 
-    /*
-    Subrutina Oracion: 
-    En base a un String y una ArrayList tipo Cadena
-    verifiacamos si el ArrayList esta vacio y tambien
-    recuperamos una cadena especifica y convertimos su Primera 
-    Letra en mayuscula
-     */
-    public static String Oracion(String Mensaje, ArrayList Cadena) {
-        int longitud = Cadena.size();
-        if (longitud == 0) {
-            return "resultado : no_n";
-        } else {
-            return "resultado : " + UpperCaseFirst(Mensaje);
-        }
-    }
-
-    //Subrutina UpperCaseFirst sirve para convertir la primera letra de una string a mayuscula
-    public static String UpperCaseFirst(String Texto) {
-        char[] Caracteres = Texto.toCharArray();
-        Caracteres[0] = Character.toUpperCase(Caracteres[0]);
-        return new String(Caracteres);
-    }
 
     //Subrutina que transforma de String a Entero
     public static int TextToNumber(String texto) {
@@ -316,4 +362,3 @@ public final class Morphoide {
     }
 
 }
-
