@@ -184,6 +184,36 @@ public class TestMorphoide {
         System.out.println(Morphoide.splitStringInTwo(exampleString3));
         System.out.println(Morphoide.splitStringInTwo(exampleString4));
 
+        System.out.println("----------------- containsLowerCase(); --------------------");
+        System.out.println(Morphoide.containsLowerCase("MORPhOID"));
+
+        System.out.println("----------------- containsUpperCase(); --------------------");
+        System.out.println(Morphoide.containsUpperCase("morphoId"));
+
+        System.out.println("----------------- containsNumber(); --------------------");
+        System.out.println(Morphoide.containsNumber("morphoid9"));
+
+        System.out.println("----------------- containsSpecialCharacter(); --------------------");
+        System.out.println(Morphoide.containsSpecialCharacter("morphoid."));
+
+        System.out.println("----------------- isBetweenRange(); --------------------");
+        System.out.println(Morphoide.isBetweenRange("morphhgjtu", 5, 10));
+
+        System.out.println("----------------- isUppercaseAndLowercase(); --------------------");
+        System.out.println(Morphoide.isUppercaseAndLowercase("Morph"));
+
+        System.out.println("----------------- validatePassword(); --------------------");
+        System.out.println(Morphoide.validatePassword("Morph$", 4, 15));
+
+        System.out.println("----------------- factorial(); --------------------");
+        System.out.println(Morphoide.factorial(3));
+
+        System.out.println("----------------- fibonacci(); --------------------");
+        System.out.println(Morphoide.fibonacci(5));
+
+        System.out.println("----------------- summation(); --------------------");
+        System.out.println(Morphoide.summation(9));
+
 
 //---------------------------------------------------------------
 //|                                                             |
@@ -193,7 +223,7 @@ public class TestMorphoide {
         List<String> list = List.of("java", "java", "rust", "javascript", "javascript");
         System.out.println("----------------- getListOfUniqueElements(); --------------------");
         System.out.println(Morphoide.getListOfUniqueElements(list));
-        
+
     }
 
 }
