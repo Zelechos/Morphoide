@@ -4,20 +4,29 @@
  * functionalities, routine, transformations, mathematical operations and more
  *
  * @author Alex T. H.
- * @version v0.1.9
+ * @version v0.2.0
  * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
  * @since 20.0.0 2023-24-03
  */
 package morphoide;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.IntPredicate;
+import java.util.regex.Pattern;
 
 public final class Morphoide {
 
+//---------------------------------------------------------------
+//|                                                             |
+//|                       MORPH FIELDS                          |
+//|                                                             |
+//---------------------------------------------------------------
     private final static int ONE_TO_AOS = 1;
+    private final static int ZERO_TO_AOS = 0;
+    private final static Pattern specialCharacter = Pattern.compile("[,:.;!@#$%&*()_+=|<>?{}\\[\\]~-]");
 
 //---------------------------------------------------------------
 //|                                                             |
@@ -33,12 +42,11 @@ public final class Morphoide {
      * @return String "rehte"
      */
     public static String reverseString(String text) {
-        int limit = text.length() - ONE_TO_AOS;
-        String reverse = "";
-        for (var lyrics = limit; lyrics >= 0; lyrics--) {
-            reverse += text.charAt(lyrics);
+        StringBuilder reverse = new StringBuilder();
+        for (var lyrics = realLength(text); lyrics >= ZERO_TO_AOS; lyrics--) {
+            reverse.append(text.charAt(lyrics));
         }
-        return reverse;
+        return reverse.toString();
     }
 
 
@@ -50,8 +58,7 @@ public final class Morphoide {
      * @return String[] ["key" , "value"]
      */
     public static String[] separationByTwoPoints(String text) {
-        String[] values = text.split("\\:");
-        return values;
+        return text.split(":");
     }
 
 
@@ -63,7 +70,7 @@ public final class Morphoide {
      * @return String "value"
      */
     public static String returnValueString(String text) {
-        String[] values = text.split("\\:");
+        String[] values = text.split(":");
         return values[ONE_TO_AOS].trim();
     }
 
@@ -76,8 +83,8 @@ public final class Morphoide {
      * @return String "key"
      */
     public static String returnKeyString(String text) {
-        String[] Separado = text.split("\\:");
-        return Separado[0].trim();
+        String[] Separado = text.split(":");
+        return Separado[ZERO_TO_AOS].trim();
     }
 
 
@@ -86,15 +93,10 @@ public final class Morphoide {
      * String en una List
      *
      * @param text "java"
-     * @return List ["j","a","v","a"]
+     * @return List<String> ["j","a","v","a"]
      */
-    public static List stringDestruction(String text) {
-        List cloneList = new ArrayList();
-        int limit = text.length();
-        for (int lyrics = 0; lyrics < limit; lyrics++) {
-            cloneList.add(text.charAt(lyrics));
-        }
-        return cloneList;
+    public static List<String> stringDestruction(String text) {
+        return Arrays.stream(text.split("")).toList();
     }
 
 
@@ -106,12 +108,11 @@ public final class Morphoide {
      * @return String "text"
      */
     public static String stringConstruction(String[] texts) {
-        String construction = "";
-        int limit = texts.length;
-        for (int lyrics = 0; lyrics < limit; lyrics++) {
-            construction += texts[lyrics];
+        StringBuilder construction = new StringBuilder();
+        for (String text : texts) {
+            construction.append(text);
         }
-        return construction;
+        return construction.toString();
     }
 
 
@@ -123,12 +124,7 @@ public final class Morphoide {
      * @return List<String> ["o","t","x","e","t"]
      */
     public static List<String> stringReverseDestruction(String text) {
-        List<String> cloneList = new ArrayList<>();
-        int limit = text.length() - ONE_TO_AOS;
-        for (int lyrics = limit; lyrics >= 0; lyrics--) {
-            cloneList.add(String.valueOf(text.charAt(lyrics)));
-        }
-        return cloneList;
+        return stringDestruction(reverseString(text));
     }
 
 
@@ -140,12 +136,7 @@ public final class Morphoide {
      * @return String "otxet"
      */
     public static String stringReserveConstruction(String[] texts) {
-        String construction = "";
-        int limit = texts.length - ONE_TO_AOS;
-        for (int lyrics = limit; lyrics >= 0; lyrics--) {
-            construction += texts[lyrics];
-        }
-        return construction;
+        return reverseString(stringConstruction(texts));
     }
 
 
@@ -168,7 +159,7 @@ public final class Morphoide {
      * @return String "o"
      */
     public static String getALastCharacterFromString(String text) {
-        return String.valueOf(text.charAt(text.length() - ONE_TO_AOS));
+        return String.valueOf(text.charAt(realLength(text)));
     }
 
 
@@ -179,7 +170,7 @@ public final class Morphoide {
      * @return String "H"
      */
     public static String getAFirstCharacterFromString(String text) {
-        return String.valueOf(text.charAt(0));
+        return String.valueOf(text.charAt(ZERO_TO_AOS));
     }
 
 
@@ -202,7 +193,7 @@ public final class Morphoide {
      * @return boolean false
      */
     public static boolean lengthIsPair(String text) {
-        return text.length() % 2 == 0;
+        return text.length() % 2 == ZERO_TO_AOS;
     }
 
 
@@ -214,7 +205,7 @@ public final class Morphoide {
      * @return boolean true
      */
     public static boolean lengthIsOdd(String text) {
-        return text.length() % 2 != 0;
+        return text.length() % 2 != ZERO_TO_AOS;
     }
 
 
@@ -226,9 +217,7 @@ public final class Morphoide {
      * @return String "Morphoide"
      */
     public static String upperCaseFirstCharacter(String text) {
-        char[] Caracteres = text.toCharArray();
-        Caracteres[0] = Character.toUpperCase(Caracteres[0]);
-        return new String(Caracteres);
+        return text.replaceFirst(getAFirstCharacterFromString(text), getAFirstCharacterFromString(text).toUpperCase());
     }
 
 
@@ -240,10 +229,9 @@ public final class Morphoide {
      * @return String "morphoidE"
      */
     public static String upperCaseLastCharacter(String text) {
-        int index = text.length() - ONE_TO_AOS;
-        char[] Caracteres = text.toCharArray();
-        Caracteres[index] = Character.toUpperCase(Caracteres[index]);
-        return new String(Caracteres);
+        char[] characters = text.toCharArray();
+        characters[realLength(text)] = Character.toUpperCase(characters[realLength(text)]);
+        return new String(characters);
     }
 
     /**
@@ -257,15 +245,100 @@ public final class Morphoide {
         StringBuilder firstText = new StringBuilder();
         StringBuilder lastText = new StringBuilder();
         int index = text.length() / 2;
-        if (text.length() % 2 != 0) {
+        if (text.length() % 2 != ZERO_TO_AOS) {
             return List.of("The text is odd");
         }
-        for (var i = 0; i < index; i++) {
+        for (var i = ZERO_TO_AOS; i < index; i++) {
             firstText.append(getACharacterFromString(text, i));
             lastText.append(getACharacterFromString(text, i + index));
         }
         return List.of(firstText.toString(), lastText.toString());
     }
+
+
+    /**
+     * Subrutina para saber si el texto tiene una letra minuscula
+     *
+     * @param text "MORPhOID"
+     * @return boolean true
+     */
+    public static boolean containsLowerCase(String text) {
+        return iterateString(text, letter -> Character.isLetter(letter) && Character.isLowerCase(letter));
+    }
+
+
+    /**
+     * Subrutina para saber si el texto tiene una letra mayuscula
+     *
+     * @param text "morphoId"
+     * @return boolean true
+     */
+    public static boolean containsUpperCase(String text) {
+        return iterateString(text, letter -> Character.isLetter(letter) && Character.isUpperCase(letter));
+    }
+
+
+    /**
+     * Subrutina para saber si el texto tiene un numero
+     *
+     * @param text "morphoid9"
+     * @return boolean true
+     */
+    public static boolean containsNumber(String text) {
+        return iterateString(text, Character::isDigit);
+    }
+
+
+    /**
+     * Subrutina para saber si el texto tiene un caracter especial
+     *
+     * @param text "morphoid!"
+     * @return boolean true
+     */
+    public static boolean containsSpecialCharacter(String text) {
+        return specialCharacter.matcher(text).find();
+    }
+
+
+    /**
+     * Subrutina para saber si el texto esta comprendido entre
+     * una longitud determinada definida por dos parametros
+     *
+     * @param text "morphoid!"
+     * @param min  8
+     * @param max  48
+     * @return boolean true
+     */
+    public static boolean isBetweenRange(String text, int min, int max) {
+        return (text.length() >= min && text.length() <= max);
+    }
+
+
+    /**
+     * Subrutina para saber si el texto tiene almenos un letra minuscula y
+     * una letra mayuscula
+     *
+     * @param text "Morphoid"
+     * @return boolean true
+     */
+    public static boolean isUppercaseAndLowercase(String text) {
+        return (containsLowerCase(text) && containsUpperCase(text));
+    }
+
+
+    /**
+     * Subrutina para validar un password
+     *
+     * @param text "Morphoid!"
+     * @param min  8
+     * @param max  48
+     * @return boolean true
+     */
+    public static boolean validatePassword(String text, int min, int max) {
+        if (!isBetweenRange(text, min, max)) return false;
+        return (containsNumber(text) || containsSpecialCharacter(text)) && isUppercaseAndLowercase(text);
+    }
+
 
 //---------------------------------------------------------------
 //|                                                             |
@@ -273,8 +346,9 @@ public final class Morphoide {
 //|                                                             |
 //---------------------------------------------------------------
 
+
     /**
-     * Subrutina para devolver una List con elementos Unicos
+     * Subrutina para devolver una List con elementos unicos
      *
      * @param list ["java", "java", "rust", "javascript", "javascript"]
      * @return List<String> ["java", "rust", "javascript"]
@@ -284,81 +358,98 @@ public final class Morphoide {
         return uniqueSet.stream().toList();
     }
 
+
+//---------------------------------------------------------------
+//|                                                             |
+//|                         MORPH INT                           |
+//|                                                             |
+//---------------------------------------------------------------
+
+
+    /**
+     * Subrutina que genera el Factorial de un número
+     *
+     * @param number 3
+     * @return int 6
+     */
+    public static int factorial(int number) {
+        if (number == ZERO_TO_AOS || number == ONE_TO_AOS) return ONE_TO_AOS;
+        return number * factorial(number - ONE_TO_AOS);
+    }
+
+
+    /**
+     * Subrutina que genera la Sumatoria de un número
+     *
+     * @param number 9
+     * @return int 45
+     */
+    public static int summation(int number) {
+        int summation = ZERO_TO_AOS;
+        for (int i = ZERO_TO_AOS; i < number; i++) {
+            summation += number - i;
+        }
+        return summation;
+    }
+
+
+//---------------------------------------------------------------
+//|                                                             |
+//|                      MORPH ALGORITHMS                       |
+//|                                                             |
+//---------------------------------------------------------------
+
+    /**
+     * Subrutina que genera la serie Fibonacci en base
+     * un numero
+     *
+     * @param number 5
+     * @return String 0 -> 1 -> 1 -> 2 -> 3
+     */
+    public static String fibonacci(int number) {
+        int predecessor = ZERO_TO_AOS;
+        int successor = ONE_TO_AOS;
+        int assistant;
+        StringBuilder succession = new StringBuilder();
+        for (int i = ZERO_TO_AOS; i < number; i++) {
+            assistant = predecessor;
+            predecessor = successor + predecessor;
+            successor = assistant;
+            succession.append(successor).append(" -> ");
+        }
+        return succession.toString();
+    }
+
+//---------------------------------------------------------------
+//|                                                             |
+//|                       MORPHS HELPERS                        |
+//|                                                             |
+//---------------------------------------------------------------
+
+
+    /**
+     * Subrutina para recorrer un texto en base a una lambda
+     *
+     * @param text   "morphoid"
+     * @param lambda ()->
+     * @return boolean true
+     */
+    private static boolean iterateString(String text, IntPredicate lambda) {
+        return text.chars().anyMatch(lambda);
+    }
+
+
+    /**
+     * Subrutina para obtener la longitud para iterar
+     *
+     * @param text "morphoid"
+     * @return int 7
+     */
+    private static int realLength(String text) {
+        return text.length() - ONE_TO_AOS;
+    }
+
 //---------------------------------------------------------------
 //                     production up to here    
-//---------------------------------------------------------------    
-
-
-    //Subrutina ReturnFactorial realiza el Factorial de una Numero y lo retorna com Un string
-    public static String ReturnFactorial(int Mensaje) {
-        int factorial = Factorial(Mensaje);
-        return "resultado : " + factorial;
-    }
-
-    /*Subrutina ReturnFibonacci realiza la sucesion Fibonacci en 
-     base a un string obtiene el valor numerico del string y 
-     realiza el calculo de la seria fibonacci en base a ese numero
-     */
-    public static String ReturnFibonacci(String Mensaje) {
-        int Valor = ReturnValue(Mensaje);
-        String respuesta = Fibonacci(Valor);
-        if (Valor > 0) {
-            return "resultado : " + respuesta;
-        } else {
-            return "resultado : no_n";
-        }
-    }
-
-
-    //Subrutina que transforma de String a Entero
-    public static int TextToNumber(String texto) {
-        int Number = Integer.parseInt(texto);
-        return Number;
-    }
-
-    //Subrutina que transforma de String a Entero
-    public static String NumberToText(int numero) {
-        String Texto = String.valueOf(numero);
-        return Texto;
-    }
-
-
-    //Subrutina para Recuperar el valor de tipo entero donde "comando : valor"
-    public static int ReturnValue(String valor) {
-        String[] Separado = valor.split("\\:");
-        int numero = TextToNumber(Separado[1].trim());
-        return numero;
-    }
-
-
-    //Subrutina que Genera el Factorial
-    public static int Factorial(int Number) {
-        if (Number == 0 || Number == 1) {
-            return 1;
-        }
-        return Number * Factorial(Number - 1);
-    }
-
-    //Subrutina que Genera la serie Fibonacci
-    public static String Fibonacci(int Number) {
-        int antecesor = 0, sucesor = 1, auxiliar;
-        String Sucesion = " ";
-        for (int i = 0; i < Number; i++) {
-            auxiliar = antecesor;
-            antecesor = sucesor + antecesor;
-            sucesor = auxiliar;
-            Sucesion += NumberToText(sucesor) + " -> ";
-        }
-        return Sucesion;
-    }
-
-    //Subrutina que Genera la Sumatoria de un Numero
-    public int Sumatoria(int Number) {
-        int Sumatoria = 0;
-        for (int Iterador = 0; Iterador < Number; Iterador++) {
-            Sumatoria += Number - Iterador;
-        }
-        return Sumatoria;
-    }
-
+//---------------------------------------------------------------
 }
