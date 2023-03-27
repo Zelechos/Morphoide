@@ -4,11 +4,11 @@
  * functionalities, routine, transformations, mathematical operations and more
  *
  * @author Alex T. H.
- * @version v0.2.0
+ * @version v0.2.1
  * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
  * @since 20.0.0 2023-24-03
  */
-package morphoide;
+package io.github.morphoide;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
 
 public final class Morphoide {
 
-//---------------------------------------------------------------
+    //---------------------------------------------------------------
 //|                                                             |
 //|                       MORPH FIELDS                          |
 //|                                                             |
@@ -28,6 +28,8 @@ public final class Morphoide {
     private final static int ZERO_TO_AOS = 0;
     private final static Pattern specialCharacter = Pattern.compile("[,:.;!@#$%&*()_+=|<>?{}\\[\\]~-]");
 
+    private Morphoide() {
+    }
 //---------------------------------------------------------------
 //|                                                             |
 //|                       MORPH STRINGS                         |

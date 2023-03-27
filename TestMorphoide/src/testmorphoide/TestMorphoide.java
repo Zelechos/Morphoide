@@ -1,6 +1,6 @@
 package testmorphoide;
 
-import morphoide.Morphoide;
+import io.github.morphoide.Morphoide;
 
 import java.util.List;
 
