@@ -1,3 +1,9 @@
+package io.github.morphoide;
+
+import java.util.*;
+import java.util.function.IntPredicate;
+import java.util.regex.Pattern;
+
 /**
  * Morphoide it is a static class to handle the instance in a more accessible way
  * that works with static methods easy to instantiate and use with different
@@ -8,15 +14,6 @@
  * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
  * @since 20.0.0 2023-24-03
  */
-package io.github.morphoide;
-
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import java.util.function.IntPredicate;
-import java.util.regex.Pattern;
-
 public final class Morphoide {
 
     //---------------------------------------------------------------
@@ -45,7 +42,7 @@ public final class Morphoide {
      */
     public static String reverseString(String text) {
         StringBuilder reverse = new StringBuilder();
-        for (var lyrics = realLength(text); lyrics >= ZERO_TO_AOS; lyrics--) {
+        for (int lyrics = realLength(text); lyrics >= ZERO_TO_AOS; lyrics--) {
             reverse.append(text.charAt(lyrics));
         }
         return reverse.toString();
@@ -95,10 +92,11 @@ public final class Morphoide {
      * String en una List
      *
      * @param text "java"
-     * @return List<String> ["j","a","v","a"]
+     * @return List ["j","a","v","a"]
      */
     public static List<String> stringDestruction(String text) {
-        return Arrays.stream(text.split("")).toList();
+        List<String> list = new ArrayList<>(Arrays.asList(text.split("")));
+        return list;
     }
 
 
@@ -123,7 +121,7 @@ public final class Morphoide {
      * de un String en una List
      *
      * @param text "texto"
-     * @return List<String> ["o","t","x","e","t"]
+     * @return List ["o","t","x","e","t"]
      */
     public static List<String> stringReverseDestruction(String text) {
         return stringDestruction(reverseString(text));
@@ -146,7 +144,8 @@ public final class Morphoide {
      * Subrutina para obtener el caracter de un String
      * dependiendo el indice introducido
      *
-     * @param text "Hello", index 0
+     * @param text  "Hello"
+     * @param index 0
      * @return String "H"
      */
     public static String getACharacterFromString(String text, int index) {
@@ -241,20 +240,25 @@ public final class Morphoide {
      * parte en un List siempre y cuando la longitud sea Par
      *
      * @param text "morphoid"
-     * @return List<String> ["morp","hoid"]
+     * @return List ["morp","hoid"]
      */
     public static List<String> splitStringInTwo(String text) {
         StringBuilder firstText = new StringBuilder();
         StringBuilder lastText = new StringBuilder();
+        List<String> list = new ArrayList<>();
         int index = text.length() / 2;
         if (text.length() % 2 != ZERO_TO_AOS) {
-            return List.of("The text is odd");
+            list.add("The text is odd");
+            return list;
         }
-        for (var i = ZERO_TO_AOS; i < index; i++) {
+        for (int i = ZERO_TO_AOS; i < index; i++) {
             firstText.append(getACharacterFromString(text, i));
             lastText.append(getACharacterFromString(text, i + index));
         }
-        return List.of(firstText.toString(), lastText.toString());
+
+        list.add(firstText.toString());
+        list.add(lastText.toString());
+        return list;
     }
 
 
@@ -353,11 +357,11 @@ public final class Morphoide {
      * Subrutina para devolver una List con elementos unicos
      *
      * @param list ["java", "java", "rust", "javascript", "javascript"]
-     * @return List<String> ["java", "rust", "javascript"]
+     * @return List ["java", "rust", "javascript"]
      */
     public static List<String> getListOfUniqueElements(List<String> list) {
         Set<String> uniqueSet = new HashSet<>(list);
-        return uniqueSet.stream().toList();
+        return new ArrayList<>(uniqueSet);
     }
 
 
@@ -406,7 +410,7 @@ public final class Morphoide {
      * un numero
      *
      * @param number 5
-     * @return String 0 -> 1 -> 1 -> 2 -> 3
+     * @return String 0, 1, 1, 2, 3
      */
     public static String fibonacci(int number) {
         int predecessor = ZERO_TO_AOS;
