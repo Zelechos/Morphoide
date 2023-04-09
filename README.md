@@ -33,6 +33,7 @@
 |------------|---------|---------------------------------------|
 | 20/12/2021 | v0.1.4  | Create method separationByTwoPoints() |
 | 26/03/2023 | v0.2.0  | Create different subrutines           |
+| 31/03/2023 | v0.2.2  | The pom.xml was created               |
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
