@@ -1,4 +1,4 @@
-# Morphoide [[v0.2.0]](https://github.com/Zelechos/PragmaticMorphoide/releases/tag/v0.2.0)
+# Morphoide [[v0.2.2]](https://github.com/Zelechos/PragmaticMorphoide/releases/tag/v0.2.2)
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 

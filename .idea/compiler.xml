@@ -9,8 +9,5 @@
         <module name="Morphoide" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Morphoide" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
