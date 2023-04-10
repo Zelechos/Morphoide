@@ -16,12 +16,12 @@
 
 ## Download Morphoide
 
-### [Morphoide v0.2.0](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.2.0/Morphoide.jar)
+### [Morphoide v0.2.3](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.2.3/Morphoide.jar)
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
 ## Information about folders
 
-- [Morphoide v0.2.3 (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
+- [Morphoide v0.2.4 (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
