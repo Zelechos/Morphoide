@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/PragmaticMorphoide.iml" filepath="$PROJECT_DIR$/.idea/PragmaticMorphoide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Morphoide/PragmaticMorphoide.iml" filepath="$PROJECT_DIR$/Morphoide/PragmaticMorphoide.iml" />
       <module fileurl="file://$PROJECT_DIR$/PragmaticMorphoideInterface/PragmaticMorphoideInterface.iml" filepath="$PROJECT_DIR$/PragmaticMorphoideInterface/PragmaticMorphoideInterface.iml" />
-      <module fileurl="file://$PROJECT_DIR$/TestMorphoide/TestMorphoide.iml" filepath="$PROJECT_DIR$/TestMorphoide/TestMorphoide.iml" />
     </modules>
   </component>
 </project>
