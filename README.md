@@ -6,24 +6,42 @@
 
 #### Morphoide It is a dynamic library open source that is easy to use and with good documentation that tries to achieve a more user-friendly experience when programming with the Java programming language.
 
-<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
-<img align="center" src="https://user-images.githubusercontent.com/41464891/146714320-aac00d2f-cd27-4376-8d9a-f38e29127480.jpg" alt="Morphoide" width="1000"/>
-<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
 
 ### "We love java and we want you to enjoy programming with java"
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+  
+
+# Maven 
+
+```xml
+<!-- https://mvnrepository.com/artifact/io.github.zelechos/Morphoide -->
+<dependency>
+    <groupId>io.github.zelechos</groupId>
+    <artifactId>Morphoide</artifactId>
+    <version>0.2.3</version>
+</dependency>
+```
+
+# Gradle
+
+```yml
+// https://mvnrepository.com/artifact/io.github.zelechos/Morphoide
+implementation group: 'io.github.zelechos', name: 'Morphoide', version: '0.2.3'
+```
+
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+<img align="center" src="https://user-images.githubusercontent.com/41464891/146714320-aac00d2f-cd27-4376-8d9a-f38e29127480.jpg" alt="Morphoide" width="1000"/>
+<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+
+## Look at the library here!!
+
+### [Morphoide v0.2.3](https://mvnrepository.com/artifact/io.github.zelechos/Morphoide/0.2.3)
 
 ## Download Morphoide
 
-### [Morphoide v0.2.3](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.2.3/Morphoide.jar)
-<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
-
-## Information about folders
-
-- [Morphoide v0.2.4 (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
-
-<img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
+### [Morphoide v0.2.3.jar](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.2.3/Morphoide.jar)
 
 ## Current Version
 
