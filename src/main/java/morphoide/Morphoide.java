@@ -10,9 +10,9 @@ import java.util.regex.Pattern;
  * functionalities, routine, transformations, mathematical operations and more
  *
  * @author Alex T. H.
- * @version v0.2.1
+ * @version v0.2.3
  * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
- * @since 20.0.0 2023-24-03
+ * @since 20.0.0 2023-09-04
  */
 public final class Morphoide {
 
