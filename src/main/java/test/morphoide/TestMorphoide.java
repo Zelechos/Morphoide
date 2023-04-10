@@ -8,8 +8,8 @@ import java.util.List;
  * Class to test all the methods of the Morphoide library
  *
  * @author Alex T. H.
- * @version v0.2.3
- * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
+ * @version v0.2.4
+ * @see <a href="https://github.com/Zelechos/Morphoide">Morphoide</a>
  * @since 20.0.0 2023-09-04
  */
 public class TestMorphoide {

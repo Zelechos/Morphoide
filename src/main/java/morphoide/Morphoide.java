@@ -10,8 +10,8 @@ import java.util.regex.Pattern;
  * functionalities, routine, transformations, mathematical operations and more
  *
  * @author Alex T. H.
- * @version v0.2.3
- * @see <a href="https://github.com/Zelechos/PragmaticMorphoide">PragmaticMorphoide</a>
+ * @version v0.2.4
+ * @see <a href="https://github.com/Zelechos/Morphoide">Morphoide</a>
  * @since 20.0.0 2023-09-04
  */
 public final class Morphoide {
@@ -95,8 +95,7 @@ public final class Morphoide {
      * @return List ["j","a","v","a"]
      */
     public static List<String> stringDestruction(String text) {
-        List<String> list = new ArrayList<>(Arrays.asList(text.split("")));
-        return list;
+        return Arrays.asList(text.split(""));
     }
 
 
