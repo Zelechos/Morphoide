@@ -1,4 +1,4 @@
-# Morphoide [[v0.2.2]](https://github.com/Zelechos/PragmaticMorphoide/releases/tag/v0.2.2)
+# Morphoide [[v0.2.3]](https://github.com/Zelechos/PragmaticMorphoide/releases/tag/v0.2.3)
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
@@ -21,9 +21,7 @@
 
 ## Information about folders
 
-- [Morphoide v0.2.1 (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
-- [PragmaticMorphoideInterface (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/PragmaticMorphoideInterface)
-- [TestMorphoide (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/TestMorphoide)
+- [Morphoide v0.2.3 (coming soon)](https://github.com/Zelechos/PragmaticMorphoide/tree/master/Morphoide)
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
@@ -34,6 +32,7 @@
 | 20/12/2021 | v0.1.4  | Create method separationByTwoPoints() |
 | 26/03/2023 | v0.2.0  | Create different subrutines           |
 | 31/03/2023 | v0.2.2  | The pom.xml was created               |
+| 09/04/2023 | v0.2.3  | Restructuring the project             |
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 

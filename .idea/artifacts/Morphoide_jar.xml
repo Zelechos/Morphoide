@@ -2,7 +2,7 @@
   <artifact type="jar" name="Morphoide:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Morphoide_jar</output-path>
     <root id="archive" name="Morphoide.jar">
-      <element id="module-output" name="Morphoide" />
+      <element id="module-output" name="PragmaticMorphoide" />
     </root>
   </artifact>
 </component>
