@@ -1,5 +1,6 @@
 # Morphoide [[v0.2.3]](https://github.com/Zelechos/PragmaticMorphoide/releases/tag/v0.2.3)
 
+## Morphoide destroys the **Single Responsibility Principle** to be easier and faster to use
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
 
@@ -31,6 +32,34 @@
 implementation group: 'io.github.zelechos', name: 'Morphoide', version: '0.2.3'
 ```
 
+## How to use ?? don't worry Morphoide is very easy to use
+_Just import Morphoide and you are ready to use all the subroutines_
+```java
+import io.github.morphoide.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Morphoide.containsLowerCase("MORPHOIdE");
+        Morphoide.getAFirstCharacterFromString("morphoide");
+        Morphoide.validatePassword("password", 8 , 15);
+        Morphoide.factorial(10);
+    }
+}
+```
+
+_All Morphoide subroutines are static for fast and simple implementation you don't need to create an instance to use Morphoide_
+```java
+import static io.github.morphoide.Morphoide.*;
+
+public class Main {
+    public static void main(String[] args) {
+        containsSpecialCharacter("morphoide@gmail.com");
+        getListOfUniqueElements(List.of("morphoide","morphoide","java","pragmic","java"));
+        lengthIsOdd("password");
+        fibonacci(10);
+    }
+}
+```
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 <img align="center" src="https://user-images.githubusercontent.com/41464891/146714320-aac00d2f-cd27-4376-8d9a-f38e29127480.jpg" alt="Morphoide" width="1000"/>
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
