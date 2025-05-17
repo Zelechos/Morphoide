@@ -27,12 +27,10 @@ public final class Morphoide {
 
     private Morphoide() {
     }
-//---------------------------------------------------------------
-//|                                                             |
-//|                       MORPH STRINGS                         |
-//|                                                             |
-//---------------------------------------------------------------
 
+//---------------------------------------------------------------
+//|                       MORPH STRINGS                         |
+//---------------------------------------------------------------
 
     /**
      * Subrutina para invertir los caracteres de un String
@@ -84,6 +82,83 @@ public final class Morphoide {
     public static String returnKeyString(String text) {
         String[] Separado = text.split(":");
         return Separado[ZERO_TO_AOS].trim();
+    }
+
+
+    /**
+     * Subrutina para separar dos valores comprendidos
+     * entre un caracter especial e introducirlos en una String[]
+     *
+     * @param text "key : value"
+     * @param symbol ":"
+     * @return String[] ["key" , "value"]
+     */
+    public static String[] separationBySymbol(String text, String symbol) {
+        if (!containsSpecialCharacter(text)) {
+            System.err.println("The text " + text + " don't have a Special Character like : ,:.;!@#$%&*()_+=|<>?{}[]~-");
+        }
+
+        if (!containsSpecialCharacter(symbol)) {
+            System.err.println("The symbol " + text + " don't have a Special Character like : ,:.;!@#$%&*()_+=|<>?{}[]~-");
+        }
+        return cleanSpacesOfString(text).split(symbol);
+    }
+
+
+    /**
+     * Subrutina para separar dos valores comprendidos
+     * entre un caracter especial e introducirlos en una List
+     *
+     * @param text "key : value"
+     * @param symbol ":"
+     * @return List ["key" , "value"]
+     */
+    public static List<String> separationBySymbolToList(String text, String symbol) {
+        if (!containsSpecialCharacter(text)) {
+            System.err.println("The text " + text + " don't have a Special Character like : ,:.;!@#$%&*()_+=|<>?{}[]~-");
+        }
+
+        if (!containsSpecialCharacter(symbol)) {
+            System.err.println("The symbol " + text + " don't have a Special Character like : ,:.;!@#$%&*()_+=|<>?{}[]~-");
+        }
+
+        return Arrays.asList(cleanSpacesOfString(text).split(symbol));
+    }
+
+
+    /**
+     * Subrutina para eliminar el primer caracter de
+     * un String
+     *
+     * @param text "java"
+     * @return String "ava"
+     */
+    public static String removeInitialCharacter(String text) {
+        return text.substring(1);
+    }
+
+
+    /**
+     * Subrutina para eliminar el ultimo caracter de
+     * un String
+     *
+     * @param text "java"
+     * @return String "jav"
+     */
+    public static String removeFinalCharacter(String text) {
+        return text.substring(0, text.length() - 1);
+    }
+
+
+    /**
+     * Subrutina para eliminar el primer y ultimo caracter de
+     * un String
+     *
+     * @param text "java"
+     * @return String "av"
+     */
+    public static String removeInitialAndFinalCharacter(String text) {
+        return removeFinalCharacter(removeInitialCharacter(text));
     }
 
 
@@ -332,6 +407,28 @@ public final class Morphoide {
 
 
     /**
+     * Subrutina para saber si el texto tiene almenos un letra minuscula y
+     * una letra mayuscula y un numero
+     *
+     * @param text "Morphoid9"
+     * @return boolean true
+     */
+    public static boolean containsUppercaseAndLowercaseAndNumber(String text) {
+        return (containsLowerCase(text) && containsUpperCase(text) && containsNumber(text));
+    }
+
+
+    /**
+     * Subrutina para eliminas los espacios en un String
+     *
+     * @param text " Hola Java "
+     * @return String "HolaJava"
+     */
+    public static String cleanSpacesOfString(String text) {
+        return text.replaceAll("\\s+", "");
+    }
+
+    /**
      * Subrutina para validar un password
      *
      * @param text "Morphoid!"
@@ -346,9 +443,7 @@ public final class Morphoide {
 
 
 //---------------------------------------------------------------
-//|                                                             |
 //|                         MORPH LIST                          |
-//|                                                             |
 //---------------------------------------------------------------
 
 
@@ -365,9 +460,7 @@ public final class Morphoide {
 
 
 //---------------------------------------------------------------
-//|                                                             |
 //|                         MORPH INT                           |
-//|                                                             |
 //---------------------------------------------------------------
 
 
@@ -426,9 +519,7 @@ public final class Morphoide {
     }
 
 //---------------------------------------------------------------
-//|                                                             |
 //|                       MORPHS HELPERS                        |
-//|                                                             |
 //---------------------------------------------------------------
 
 
