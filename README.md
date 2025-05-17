@@ -70,7 +70,7 @@ public class Main {
 
 ## Download Morphoide
 
-### [Morphoide v0.3.7.jar](https://github.com/Zelechos/PragmaticMorphoide/releases/download/v0.3.7/Morphoide.jar)
+### [Morphoide v0.3.7.jar](https://github.com/Zelechos/Morphoide/releases/download/v0.3.7/Morphoide-0.3.7.jar)
 
 ## Current Version
 
