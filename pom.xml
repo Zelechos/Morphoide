@@ -6,7 +6,7 @@
 
     <groupId>io.github.zelechos</groupId>
     <artifactId>Morphoide</artifactId>
-    <version>0.3.6</version>
+    <version>0.3.7</version>
 
     <build>
         <plugins>
@@ -59,7 +59,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>3.2.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -68,7 +68,12 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <keyname>0x3F9C8C0C</keyname>
+                            <executable>C:\Program Files (x86)\GnuPG\bin\gpg.exe</executable>
+                            <keyname>695F81BD</keyname>
+                            <gpgArguments>
+                            <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
                         </configuration>
                     </execution>
                 </executions>
@@ -92,7 +97,9 @@
     <packaging>jar</packaging>
 
     <name>Morphoide</name>
-    <description>Morphoide It is a dynamic library open source that is easy to use and with good documentation that tries to achieve a more user-friendly experience when programming with the Java programming language.</description>
+    <description>Morphoide It is a dynamic library open source that is easy to use and with good documentation that
+        tries to achieve a more user-friendly experience when programming with the Java programming language.
+    </description>
     <url>https://github.com/Zelechos/Morphoide/tree/master/src/main/java/morphoide</url>
 
     <licenses>

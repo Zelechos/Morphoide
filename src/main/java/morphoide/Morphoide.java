@@ -10,29 +10,53 @@ import java.util.regex.Pattern;
  * functionalities, routine, transformations, mathematical operations and more
  *
  * @author Alex T. H.
- * @version v0.2.4
+ * @version v0.3.8
  * @see <a href="https://github.com/Zelechos/Morphoide">Morphoide</a>
- * @since 20.0.0 2023-09-04
+ * @since 20.0.0 2025-09-24
  */
-public final class Morphoide {
+public class Morphoide {
 
-    //---------------------------------------------------------------
+//---------------------------------------------------------------
 //|                                                             |
 //|                       MORPH FIELDS                          |
 //|                                                             |
 //---------------------------------------------------------------
-    private final static int ONE_TO_AOS = 1;
-    private final static int ZERO_TO_AOS = 0;
-    private final static Pattern specialCharacter = Pattern.compile("[,:.;!@#$%&*()_+=|<>?{}\\[\\]~-]");
+    private final int ONE_TO_AOS = 1;
+    private final int ZERO_TO_AOS = 0;
+    private final Pattern specialCharacter = Pattern.compile("[,:.;!@#$%&*()_+=|<>?{}\\[\\]~-]");
+    private static Object responseMorph;
 
-    private Morphoide() {
+    private Morphoide(Object responseMorph) {
+        Morphoide.responseMorph = responseMorph;
     }
+
+    public static <E> Morphoide meta() {
+        return new Morphoide(responseMorph);
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> T morph(Class<T> type) {
+        return (T) responseMorph;
+    }
+
+    @SuppressWarnings("unchecked")
+    public <T> T morph() {
+        return (T) responseMorph;
+    }
+
 //---------------------------------------------------------------
-//|                                                             |
 //|                       MORPH STRINGS                         |
-//|                                                             |
 //---------------------------------------------------------------
 
+    /**
+     * Subrutina para invertir los caracteres de un Morphoide
+     *
+     * @return String "rehte"
+     */
+    public Morphoide reverseString() {
+        this.responseMorph = new StringBuilder(Morphoide.responseMorph.toString()).reverse().toString();
+        return this;
+    }
 
     /**
      * Subrutina para invertir los caracteres de un String
@@ -40,50 +64,201 @@ public final class Morphoide {
      * @param text "ether"
      * @return String "rehte"
      */
-    public static String reverseString(String text) {
-        StringBuilder reverse = new StringBuilder();
-        for (int lyrics = realLength(text); lyrics >= ZERO_TO_AOS; lyrics--) {
-            reverse.append(text.charAt(lyrics));
-        }
-        return reverse.toString();
+    public Morphoide reverseString(String text) {
+        this.responseMorph = new StringBuilder(text).reverse().toString();
+        return this;
     }
-
-
-    /**
-     * Subrutina para separar dos valores comprendidos
-     * entre (:) e introducirlos en una List
-     *
-     * @param text "key : value"
-     * @return String[] ["key" , "value"]
-     */
-    public static String[] separationByTwoPoints(String text) {
-        return text.split(":");
-    }
-
 
     /**
      * Subrutina obtener el valor de una tupla separada
-     * por (:) y devolver el valor
+     * por caracter especial y devolver el valor
      *
      * @param text "key : value"
+     * @param symbol ":"
      * @return String "value"
      */
-    public static String returnValueString(String text) {
-        String[] values = text.split(":");
-        return values[ONE_TO_AOS].trim();
+    public Morphoide returnValueString(String text, String symbol) {
+        this.responseMorph = Morphoide.meta()
+                .separationBySymbolToList(text, symbol)
+                .returnValueString()
+                .morph();
+        return this;
+    }
+
+    /**
+     * Subrutina obtener el valor de una tupla separada
+     * por caracter especial y devolver el valor
+     *
+     * @return String "value"
+     */
+    public Morphoide returnValueString() {
+        this.responseMorph = Morphoide.meta()
+                .morph(List.class)
+                .get(ONE_TO_AOS);
+        return this;
     }
 
 
     /**
      * Subrutina obtener la llave de una tupla separada
-     * por (:) y devolver la llave
+     * por caractar especial y devolver la llave
      *
      * @param text "key : value"
+     * @param symbol ":"
      * @return String "key"
      */
-    public static String returnKeyString(String text) {
-        String[] Separado = text.split(":");
-        return Separado[ZERO_TO_AOS].trim();
+    public Morphoide returnKeyString(String text, String symbol) {
+        this.responseMorph = Morphoide.meta()
+                .separationBySymbolToList(text, symbol)
+                .returnKeyString()
+                .morph();
+        return this;
+    }
+
+
+    /**
+     * Subrutina obtener la llave de una tupla separada
+     * por caractar especial y devolver la llave
+     *
+     * @return String "key"
+     */
+    public Morphoide returnKeyString() {
+        this.responseMorph = Morphoide.meta()
+                .morph(List.class)
+                .get(ZERO_TO_AOS);
+        return this;
+    }
+
+
+    /**
+     * Subrutina para separar dos valores comprendidos
+     * entre un caracter especial e introducirlos en una String[]
+     *
+     * @param text "key : value"
+     * @param symbol ":"
+     * @return String[] ["key" , "value"]
+     */
+    public Morphoide separationBySymbol(String text, String symbol) {
+        boolean validation = Morphoide.meta()
+                .containsSpecialCharacter(text)
+                .morph();
+
+        if (!validation) {
+            throw new Error("The text " + text + " don't have a Special Character like : ,:.;!@#$%&*()_+=|<>?{}[]~-");
+        }
+
+        this.responseMorph = Morphoide.meta()
+                .cleanSpacesOfString(text)
+                .morph(String.class)
+                .split(symbol);
+        return this;
+    }
+
+
+    /**
+     * Subrutina para separar dos valores comprendidos
+     * entre un caracter especial e introducirlos en una List
+     *
+     * @param text "key : value"
+     * @param symbol ":"
+     * @return List ["key" , "value"]
+     */
+    public Morphoide separationBySymbolToList(String text, String symbol) {
+
+        boolean validation = Morphoide.meta()
+                .containsSpecialCharacter(text)
+                .morph();
+
+        if (!validation) {
+            throw new Error("The text " + text + " don't have a Special Character like : ,:.;!@#$%&*()_+=|<>?{}[]~-");
+        }
+
+        this.responseMorph = Arrays.asList(Morphoide.meta()
+                .cleanSpacesOfString(text)
+                .morph(String.class)
+                .split(symbol));
+        return this;
+    }
+
+
+    /**
+     * Subrutina para eliminar el primer caracter de
+     * un Morphoide
+     *
+     * @return String "ava"
+     */
+    public Morphoide removeInitialCharacter() {
+        this.responseMorph = Morphoide.responseMorph.toString().substring(1);
+        return this;
+    }
+
+
+    /**
+     * Subrutina para eliminar el primer caracter de
+     * un String
+     *
+     * @param text "java"
+     * @return String "ava"
+     */
+    public Morphoide removeInitialCharacter(String text) {
+        this.responseMorph = text.substring(1);
+        return this;
+    }
+
+
+    /**
+     * Subrutina para eliminar el ultimo caracter de
+     * un Morphoide
+     *
+     * @return String "jav"
+     */
+    public Morphoide removeFinalCharacter() {
+        String currentMorph =  Morphoide.responseMorph.toString();
+        this.responseMorph = currentMorph.substring(0, currentMorph.length() - 1);
+        return this;
+    }
+
+
+    /**
+     * Subrutina para eliminar el ultimo caracter de
+     * un String
+     *
+     * @param text "java"
+     * @return String "jav"
+     */
+    public Morphoide removeFinalCharacter(String text) {
+        this.responseMorph = text.substring(0, text.length() - 1);
+        return this;
+    }
+
+
+    /**
+     * Subrutina para eliminar el primer y ultimo caracter de
+     * un Morphoide
+     *
+     * @return String "av"
+     */
+    public Morphoide removeInitialAndFinalCharacter() {
+        this.responseMorph = Morphoide.meta()
+                .removeFinalCharacter(Morphoide.responseMorph.toString())
+                .removeInitialAndFinalCharacter()
+                .morph();
+        return this;
+    }
+
+    /**
+     * Subrutina para eliminar el primer y ultimo caracter de
+     * un String
+     *
+     * @param text "java"
+     * @return String "av"
+     */
+    public Morphoide removeInitialAndFinalCharacter(String text) {
+        this.responseMorph = Morphoide.meta()
+                .removeFinalCharacter(text)
+                .removeInitialAndFinalCharacter()
+                .morph();
+        return this;
     }
 
 
@@ -94,8 +269,21 @@ public final class Morphoide {
      * @param text "java"
      * @return List ["j","a","v","a"]
      */
-    public static List<String> stringDestruction(String text) {
-        return Arrays.asList(text.split(""));
+    public Morphoide stringDestruction(String text) {
+        this.responseMorph = Arrays.asList(text.split(""));
+        return this;
+    }
+
+
+    /**
+     * Subrutina para guardar todas las letras de una
+     * String en una List
+     *
+     * @return List ["j","a","v","a"]
+     */
+    public Morphoide stringDestruction() {
+        this.responseMorph = Arrays.asList(Morphoide.responseMorph.toString().split(""));
+        return this;
     }
 
 
@@ -106,12 +294,30 @@ public final class Morphoide {
      * @param texts ["t", "e", "x", "t"]
      * @return String "text"
      */
-    public static String stringConstruction(String[] texts) {
+    public Morphoide stringConstruction(String[] texts) {
         StringBuilder construction = new StringBuilder();
         for (String text : texts) {
             construction.append(text);
         }
-        return construction.toString();
+        this.responseMorph  = construction.toString();
+        return this;
+    }
+
+
+    /**
+     * Subrutina para crear un String con los elementos
+     * de una List
+     *
+     * @return String "text"
+     */
+    public Morphoide stringConstruction() {
+        StringBuilder construction = new StringBuilder();
+        String [] texts = (String[]) Morphoide.responseMorph;
+        for (String text : texts) {
+            construction.append(text);
+        }
+        this.responseMorph  = construction.toString();
+        return this;
     }
 
 
@@ -122,8 +328,14 @@ public final class Morphoide {
      * @param text "texto"
      * @return List ["o","t","x","e","t"]
      */
-    public static List<String> stringReverseDestruction(String text) {
-        return stringDestruction(reverseString(text));
+    public Morphoide stringReverseDestruction(String text) {
+        Morphoide morphoide = this.reverseString(text);
+        this.responseMorph = Morphoide.meta()
+                .reverseString(text)
+                .stringConstruction()
+                .stringDestruction()
+                .morph();
+        return this;
     }
 
 
@@ -134,8 +346,25 @@ public final class Morphoide {
      * @param texts [t, e, x, t, o]
      * @return String "otxet"
      */
-    public static String stringReserveConstruction(String[] texts) {
-        return reverseString(stringConstruction(texts));
+    public Morphoide listReverseConstruction(String[] texts) {
+        this.responseMorph = Morphoide.meta()
+                .stringConstruction()
+                .reverseString()
+                .morph();
+        return this;
+    }
+
+
+    /**
+     * Subrutina para obtener el caracter de un Morphoide
+     * dependiendo el indice introducido
+     *
+     * @param text  "Hello"
+     * @return String "H"
+     */
+    public Morphoide getFirstCharacterFromString(String text) {
+        this.responseMorph = String.valueOf(text.charAt(ZERO_TO_AOS));
+        return this;
     }
 
 
@@ -143,12 +372,11 @@ public final class Morphoide {
      * Subrutina para obtener el caracter de un String
      * dependiendo el indice introducido
      *
-     * @param text  "Hello"
-     * @param index 0
      * @return String "H"
      */
-    public static String getACharacterFromString(String text, int index) {
-        return String.valueOf(text.charAt(index));
+    public Morphoide getFirstCharacterFromString() {
+        this.responseMorph = String.valueOf(Morphoide.responseMorph.toString().charAt(ZERO_TO_AOS));
+        return this;
     }
 
 
@@ -158,19 +386,25 @@ public final class Morphoide {
      * @param text "Hello"
      * @return String "o"
      */
-    public static String getALastCharacterFromString(String text) {
-        return String.valueOf(text.charAt(realLength(text)));
+    public Morphoide getLastCharacterFromString(String text) {
+        this.responseMorph = String.valueOf(text.charAt(Morphoide.meta()
+                .realLength(text)
+                .morph()));
+        return this;
     }
 
 
     /**
-     * Subrutina para obtener el primer caracter de un String
+     * Subrutina para obtener el primer caracter de un Morphoide
      *
-     * @param text "Hello"
      * @return String "H"
      */
-    public static String getAFirstCharacterFromString(String text) {
-        return String.valueOf(text.charAt(ZERO_TO_AOS));
+    public Morphoide getLastCharacterFromString() {
+        String currentMorph = Morphoide.responseMorph.toString();
+        this.responseMorph = String.valueOf(currentMorph.charAt(Morphoide.meta()
+                .realLength(currentMorph)
+                .morph()));
+        return this;
     }
 
 
@@ -180,8 +414,26 @@ public final class Morphoide {
      * @param text "Morphoide"
      * @return boolean false
      */
-    public static boolean isCapicua(String text) {
-        return text.equals(reverseString(text));
+    public Morphoide isCapicua(String text) {
+        this.responseMorph = Morphoide.meta()
+                .reverseString(text)
+                .isCapicua()
+                .morph(Boolean.class);
+        return this;
+    }
+
+
+
+    /**
+     * Subrutina para saber si un String es Capicua
+     *
+     * @return boolean false
+     */
+    public Morphoide isCapicua() {
+        this.responseMorph = Morphoide.responseMorph.equals(Morphoide.meta()
+                .reverseString()
+                .morph());
+        return this;
     }
 
 
@@ -192,8 +444,21 @@ public final class Morphoide {
      * @param text "Morphoide"
      * @return boolean false
      */
-    public static boolean lengthIsPair(String text) {
-        return text.length() % 2 == ZERO_TO_AOS;
+    public Morphoide lengthIsPair(String text) {
+        this.responseMorph = text.length() % 2 == ZERO_TO_AOS;
+        return this;
+    }
+
+
+    /**
+     * Subrutina para saber si la longitud de un Morphoide
+     * es Par
+     *
+     * @return boolean
+     */
+    public Morphoide lengthIsPair() {
+        this.responseMorph = Morphoide.responseMorph.toString().length() % 2 == ZERO_TO_AOS;
+        return this;
     }
 
 
@@ -204,10 +469,22 @@ public final class Morphoide {
      * @param text "Morphoide"
      * @return boolean true
      */
-    public static boolean lengthIsOdd(String text) {
-        return text.length() % 2 != ZERO_TO_AOS;
+    public Morphoide lengthIsOdd(String text) {
+        this.responseMorph = text.length() % 2 != ZERO_TO_AOS;
+        return this;
     }
 
+
+    /**
+     * Subrutina para saber si la longitud de un Morphoide
+     * es Impar
+     *
+     * @return boolean true
+     */
+    public Morphoide lengthIsOdd() {
+        this.responseMorph=  Morphoide.responseMorph.toString().length() % 2 != ZERO_TO_AOS;
+        return this;
+    }
 
     /**
      * Subrutina para convertir la primera letra de una
@@ -216,8 +493,28 @@ public final class Morphoide {
      * @param text "morphoide"
      * @return String "Morphoide"
      */
-    public static String upperCaseFirstCharacter(String text) {
-        return text.replaceFirst(getAFirstCharacterFromString(text), getAFirstCharacterFromString(text).toUpperCase());
+    public Morphoide upperCaseFirstCharacter(String text) {
+        String currentChar = Morphoide.meta()
+                .getFirstCharacterFromString(text)
+                .morph();
+        this.responseMorph = text.replaceFirst(currentChar, currentChar.toUpperCase());
+        return this;
+    }
+
+
+    /**
+     * Subrutina para convertir la primera letra de una
+     * Morphoide a mayuscula
+     *
+     * @return String "Morphoide"
+     */
+    public Morphoide upperCaseFirstCharacter() {
+        String currentMorph = Morphoide.responseMorph.toString();
+        String currentChar = Morphoide.meta()
+                .getFirstCharacterFromString(currentMorph)
+                .morph();
+        this.responseMorph = currentMorph.replaceFirst(currentChar, currentChar.toUpperCase());
+        return this;
     }
 
 
@@ -228,11 +525,42 @@ public final class Morphoide {
      * @param text "morphoide"
      * @return String "morphoidE"
      */
-    public static String upperCaseLastCharacter(String text) {
+    public Morphoide upperCaseLastCharacter(String text) {
         char[] characters = text.toCharArray();
-        characters[realLength(text)] = Character.toUpperCase(characters[realLength(text)]);
-        return new String(characters);
+        int lastPosition = Morphoide.meta()
+                .realLength(text)
+                .morph();
+
+        characters[lastPosition] = Character.toUpperCase(Morphoide.meta()
+                        .getLastCharacterFromString(text)
+                        .morph());
+
+        this.responseMorph =  new String(characters);
+        return this;
     }
+
+
+    /**
+     * Subrutina para convertir la ultima letra de una
+     * string a mayuscula
+     *
+     * @return String "morphoidE"
+     */
+    public Morphoide upperCaseLastCharacter() {
+        String currentMorph = Morphoide.responseMorph.toString();
+        char[] characters = currentMorph.toCharArray();
+        int lastPosition = Morphoide.meta()
+                .realLength(currentMorph)
+                .morph();
+
+        characters[lastPosition] = Character.toUpperCase(Morphoide.meta()
+                .getLastCharacterFromString(currentMorph)
+                .morph());
+
+        this.responseMorph =  new String(characters);
+        return this;
+    }
+
 
     /**
      * Subrutina para dividir a la mitad un String y devolver cada
@@ -241,36 +569,78 @@ public final class Morphoide {
      * @param text "morphoid"
      * @return List ["morp","hoid"]
      */
-    public static List<String> splitStringInTwo(String text) {
-        StringBuilder firstText = new StringBuilder();
-        StringBuilder lastText = new StringBuilder();
+    public Morphoide splitStringInTwo(String text) {
         List<String> list = new ArrayList<>();
-        int index = text.length() / 2;
         if (text.length() % 2 != ZERO_TO_AOS) {
-            list.add("The text is odd");
-            return list;
+            throw new Error("The length of " + text + " is odd");
         }
-        for (int i = ZERO_TO_AOS; i < index; i++) {
-            firstText.append(getACharacterFromString(text, i));
-            lastText.append(getACharacterFromString(text, i + index));
-        }
+        int mid = text.length() / 2;
+        list.add(text.substring(0 , mid));
+        list.add(text.substring(mid));
+        this.responseMorph = list;
+        return this;
+    }
 
-        list.add(firstText.toString());
-        list.add(lastText.toString());
-        return list;
+
+    /**
+     * Subrutina para dividir a la mitad un String y devolver cada
+     * parte en un List siempre y cuando la longitud sea Par
+     *
+     * @return List ["morp","hoid"]
+     */
+    public Morphoide splitStringInTwo() {
+        String currentMorph = Morphoide.responseMorph.toString();
+        List<String> list = new ArrayList<>();
+        if (currentMorph.length() % 2 != ZERO_TO_AOS) {
+            throw new Error("The length of " + currentMorph + " is odd");
+        }
+        int mid = currentMorph.length() / 2;
+        list.add(currentMorph.substring(0 , mid));
+        list.add(currentMorph.substring(mid));
+        this.responseMorph = list;
+        return this;
     }
 
 
     /**
      * Subrutina para saber si el texto tiene una letra minuscula
      *
-     * @param text "MORPhOID"
      * @return boolean true
      */
-    public static boolean containsLowerCase(String text) {
-        return iterateString(text, letter -> Character.isLetter(letter) && Character.isLowerCase(letter));
+    public Morphoide containsLowerCase() {
+        this.responseMorph = Morphoide.meta()
+                .iterateString(Morphoide.responseMorph
+                        .toString(), letter -> Character.isLetter(letter) && Character.isLowerCase(letter))
+                .morph(Boolean.class);
+        return this;
     }
 
+    /**
+     * Subrutina para saber si el texto tiene una letra minuscula
+     *
+     * @param text "MOrPH"
+     * @return boolean true
+     */
+    public Morphoide containsLowerCase(String text) {
+        this.responseMorph = Morphoide.meta()
+                .iterateString(text, letter -> Character.isLetter(letter) && Character.isLowerCase(letter))
+                .morph(Boolean.class);
+        return this;
+    }
+
+
+    /**
+     * Subrutina para saber si el texto tiene una letra mayuscula
+     *
+     * @return boolean true
+     */
+    public Morphoide containsUpperCase() {
+        this.responseMorph = Morphoide.meta()
+                .iterateString(Morphoide.responseMorph
+                        .toString(), letter -> Character.isLetter(letter) && Character.isUpperCase(letter))
+                .morph(Boolean.class);
+        return this;
+    }
 
     /**
      * Subrutina para saber si el texto tiene una letra mayuscula
@@ -278,8 +648,11 @@ public final class Morphoide {
      * @param text "morphoId"
      * @return boolean true
      */
-    public static boolean containsUpperCase(String text) {
-        return iterateString(text, letter -> Character.isLetter(letter) && Character.isUpperCase(letter));
+    public Morphoide containsUpperCase(String text) {
+         this.responseMorph = Morphoide.meta()
+                 .iterateString(text, letter -> Character.isLetter(letter) && Character.isUpperCase(letter))
+                 .morph(Boolean.class);
+         return this;
     }
 
 
@@ -289,10 +662,25 @@ public final class Morphoide {
      * @param text "morphoid9"
      * @return boolean true
      */
-    public static boolean containsNumber(String text) {
-        return iterateString(text, Character::isDigit);
+    public Morphoide containsNumber(String text) {
+        this.responseMorph = Morphoide.meta()
+                .iterateString(text, Character::isDigit)
+                .morph(Boolean.class);
+        return this;
     }
 
+
+    /**
+     * Subrutina para saber si el texto tiene un numero
+     *
+     * @return boolean true
+     */
+    public Morphoide containsNumber() {
+        this.responseMorph = Morphoide.meta()
+                .iterateString(Morphoide.responseMorph.toString(), Character::isDigit)
+                .morph(Boolean.class);
+        return this;
+    }
 
     /**
      * Subrutina para saber si el texto tiene un caracter especial
@@ -300,8 +688,20 @@ public final class Morphoide {
      * @param text "morphoid!"
      * @return boolean true
      */
-    public static boolean containsSpecialCharacter(String text) {
-        return specialCharacter.matcher(text).find();
+    public Morphoide containsSpecialCharacter(String text) {
+        this.responseMorph = specialCharacter.matcher(text).find();
+        return this;
+    }
+
+    /**
+     * Subrutina para saber si el Morphoide tiene un caracter especial
+     *
+     * @return boolean true
+     */
+    public Morphoide containsSpecialCharacter() {
+        this.responseMorph =  specialCharacter.matcher(Morphoide.responseMorph
+                .toString()).find();
+        return this;
     }
 
 
@@ -314,10 +714,25 @@ public final class Morphoide {
      * @param max  48
      * @return boolean true
      */
-    public static boolean isBetweenRange(String text, int min, int max) {
-        return (text.length() >= min && text.length() <= max);
+    public Morphoide isBetweenRange(String text, int min, int max) {
+        this.responseMorph = (text.length() >= min && text.length() <= max);
+        return this;
     }
 
+
+    /**
+     * Subrutina para saber si el Morphoide tiene almenos un letra minuscula y
+     * una letra mayuscula
+     *
+     * @return boolean true
+     */
+    public Morphoide isUppercaseAndLowercase() {
+        this.responseMorph = Morphoide.meta()
+                .containsUpperCase()
+                .containsLowerCase()
+                .morph(Boolean.class);
+        return this;
+    }
 
     /**
      * Subrutina para saber si el texto tiene almenos un letra minuscula y
@@ -326,10 +741,69 @@ public final class Morphoide {
      * @param text "Morphoid"
      * @return boolean true
      */
-    public static boolean isUppercaseAndLowercase(String text) {
-        return (containsLowerCase(text) && containsUpperCase(text));
+    public Morphoide isUppercaseAndLowercase(String text) {
+        this.responseMorph = Morphoide.meta()
+                .containsUpperCase(text)
+                .containsLowerCase()
+                .morph(Boolean.class);
+        return this;
     }
 
+
+    /**
+     * Subrutina para saber si el Morphoide tiene almenos un letra minuscula y
+     * una letra mayuscula y un numero
+     *
+     * @return boolean true
+     */
+    public Morphoide containsUppercaseAndLowercaseAndNumber() {
+        this.responseMorph = Morphoide.meta()
+                .containsLowerCase()
+                .containsUpperCase()
+                .containsNumber()
+                .morph();
+        return this;
+    }
+
+    /**
+     * Subrutina para saber si el texto tiene almenos un letra minuscula y
+     * una letra mayuscula y un numero
+     *
+     * @param text "Morphoid9"
+     * @return boolean true
+     */
+    public Morphoide containsUppercaseAndLowercaseAndNumber(String text) {
+        this.responseMorph = Morphoide.meta()
+                .containsLowerCase(text)
+                .containsUpperCase()
+                .containsNumber()
+                .morph();
+        return this;
+    }
+
+
+    /**
+     * Subrutina para eliminas los espacios en un String
+     *
+     * @param text " Hola Java "
+     * @return String "HolaJava"
+     */
+    public Morphoide cleanSpacesOfString(String text) {
+        this.responseMorph = text.replaceAll("\\s+", "");
+        return this;
+    }
+
+    /**
+     * Subrutina para eliminas los espacios en un String
+     *
+     * @return String "HolaJava"
+     */
+    public Morphoide cleanSpacesOfString() {
+        this.responseMorph = Morphoide.responseMorph
+                .toString()
+                .replaceAll("\\s+", "");
+        return this;
+    }
 
     /**
      * Subrutina para validar un password
@@ -339,16 +813,26 @@ public final class Morphoide {
      * @param max  48
      * @return boolean true
      */
-    public static boolean validatePassword(String text, int min, int max) {
-        if (!isBetweenRange(text, min, max)) return false;
-        return (containsNumber(text) || containsSpecialCharacter(text)) && isUppercaseAndLowercase(text);
+    public Morphoide isValidPassword(String text, int min, int max) {
+        boolean validation = Morphoide.meta()
+                .isBetweenRange(text, min, max)
+                .morph(Boolean.class);
+        if (!validation) {
+            throw new Error("The password " + text + " don't have a the range between min " + min + " and max " + max);
+        }
+
+        this.responseMorph = Morphoide.meta()
+                .containsNumber(text)
+                .containsSpecialCharacter()
+                .isUppercaseAndLowercase()
+                .morph();
+        return this;
+
     }
 
 
 //---------------------------------------------------------------
-//|                                                             |
 //|                         MORPH LIST                          |
-//|                                                             |
 //---------------------------------------------------------------
 
 
@@ -358,18 +842,26 @@ public final class Morphoide {
      * @param list ["java", "java", "rust", "javascript", "javascript"]
      * @return List ["java", "rust", "javascript"]
      */
-    public static List<String> getListOfUniqueElements(List<String> list) {
-        Set<String> uniqueSet = new HashSet<>(list);
-        return new ArrayList<>(uniqueSet);
+    public Morphoide getListOfUniqueElements(List<String> list) {
+        this.responseMorph = new ArrayList<>(new HashSet<>(list));
+        return this;
     }
 
 
-//---------------------------------------------------------------
-//|                                                             |
-//|                         MORPH INT                           |
-//|                                                             |
-//---------------------------------------------------------------
+    /**
+     * Subrutina para devolver una Morphoide con elementos unicos
+     *
+     * @return List ["java", "rust", "javascript"]
+     */
+    public Morphoide getListOfUniqueElements() {
+        this.responseMorph = new ArrayList<>(
+                new LinkedHashSet<>((Collection) Morphoide.responseMorph));
+        return this;
+    }
 
+//---------------------------------------------------------------
+//|                         MORPH INT                           |
+//---------------------------------------------------------------
 
     /**
      * Subrutina que genera el Factorial de un número
@@ -377,11 +869,10 @@ public final class Morphoide {
      * @param number 3
      * @return int 6
      */
-    public static int factorial(int number) {
+    public int factorial(int number) {
         if (number == ZERO_TO_AOS || number == ONE_TO_AOS) return ONE_TO_AOS;
         return number * factorial(number - ONE_TO_AOS);
     }
-
 
     /**
      * Subrutina que genera la Sumatoria de un número
@@ -389,7 +880,7 @@ public final class Morphoide {
      * @param number 9
      * @return int 45
      */
-    public static int summation(int number) {
+    public int summation(int number) {
         int summation = ZERO_TO_AOS;
         for (int i = ZERO_TO_AOS; i < number; i++) {
             summation += number - i;
@@ -411,7 +902,7 @@ public final class Morphoide {
      * @param number 5
      * @return String 0, 1, 1, 2, 3
      */
-    public static String fibonacci(int number) {
+    public  String fibonacci(int number) {
         int predecessor = ZERO_TO_AOS;
         int successor = ONE_TO_AOS;
         int assistant;
@@ -426,9 +917,7 @@ public final class Morphoide {
     }
 
 //---------------------------------------------------------------
-//|                                                             |
 //|                       MORPHS HELPERS                        |
-//|                                                             |
 //---------------------------------------------------------------
 
 
@@ -439,8 +928,9 @@ public final class Morphoide {
      * @param lambda ()->
      * @return boolean true
      */
-    private static boolean iterateString(String text, IntPredicate lambda) {
-        return text.chars().anyMatch(lambda);
+    private Morphoide iterateString(String text, IntPredicate lambda) {
+        this.responseMorph = text.chars().anyMatch(lambda);
+        return this;
     }
 
 
@@ -450,8 +940,19 @@ public final class Morphoide {
      * @param text "morphoid"
      * @return int 7
      */
-    private static int realLength(String text) {
-        return text.length() - ONE_TO_AOS;
+    private Morphoide realLength(String text) {
+        this.responseMorph = text.length() - ONE_TO_AOS;
+        return this;
+    }
+
+    /**
+     * Subrutina para obtener la longitud para iterar
+     *
+     * @return int 7
+     */
+    private Morphoide realLength() {
+        this.responseMorph =  Morphoide.responseMorph.toString().length() - ONE_TO_AOS;
+        return this;
     }
 
 //---------------------------------------------------------------
