@@ -37,6 +37,10 @@ public class Morphoide {
         return new Morphoide(null);
     }
 
+    public static <E> Morphoide meta(Object morph) {
+        return new Morphoide(morph);
+    }
+
     @SuppressWarnings("unchecked")
     public <T> T morph(Class<T> type) {
         return (T) responseMorph;
@@ -822,6 +826,30 @@ public class Morphoide {
 
 
     /**
+     * Subrutina para saber si el Morphoide tiene almenos un letra minuscula y
+     * una letra mayuscula y un numero
+     *
+     * @return boolean true
+     */
+    public Morphoide containsUppercaseAndLowercaseAndSpecialCharacter() {
+        this.responseMorph = (containsUppercaseAndLowercase().morph(Boolean.class) && containsSpecialCharacter().morph(Boolean.class));
+        return this;
+    }
+
+    /**
+     * Subrutina para saber si el texto tiene almenos un letra minuscula y
+     * una letra mayuscula y un numero
+     *
+     * @param text "Morphoid9"
+     * @return boolean true
+     */
+    public Morphoide containsUppercaseAndLowercaseAndSpecialCharacter(String text) {
+        this.responseMorph = (containsUppercaseAndLowercase(text).morph(Boolean.class) && containsSpecialCharacter(text).morph(Boolean.class));
+        return this;
+    }
+
+
+    /**
      * Subrutina para eliminas los espacios en un String
      *
      * @param text " Hola Java "
@@ -888,7 +916,7 @@ public class Morphoide {
      * @return List ["java", "rust", "javascript"]
      */
     public Morphoide getListOfUniqueElements() {
-        this.responseMorph = getListOfUniqueElements(this.responseMorph.toString());
+        this.responseMorph = getListOfUniqueElements((List<String>) this.responseMorph).morph();
         return this;
     }
 
@@ -984,7 +1012,7 @@ public class Morphoide {
      * @return int 7
      */
     private Morphoide realLength() {
-        this.responseMorph = this.responseMorph.toString().length() - ONE_TO_AOS;
+        this.responseMorph = realLength(this.responseMorph.toString()).morph();
         return this;
     }
 
