@@ -6,7 +6,7 @@
 
     <groupId>io.github.zelechos</groupId>
     <artifactId>Morphoide</artifactId>
-    <version>0.3.7</version>
+    <version>0.3.8</version>
 
     <build>
         <plugins>
@@ -56,6 +56,7 @@
                     </execution>
                 </executions>
             </plugin>
+<!--  NECESARIO DESCOMENTAR PARA DESPLEGAR AL MAVEN REPOSITORY
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -71,13 +72,14 @@
                             <executable>C:\Program Files (x86)\GnuPG\bin\gpg.exe</executable>
                             <keyname>695F81BD</keyname>
                             <gpgArguments>
-                            <arg>--pinentry-mode</arg>
+                            <arg>-pinentry-mode</arg> AQUI AGREGAR UN "-' TAL QUE pinentry quede con doble guion adelante
                                 <arg>loopback</arg>
                             </gpgArguments>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+            -->
             <plugin>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>2.8.1</version>
