@@ -1,0 +1,22 @@
+-encoding
+'Cp1252'
+-protected
+-sourcepath
+'Z:/Projects/Morphoide/src/main/java;Z:/Projects/Morphoide/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'Z:/Projects/Morphoide/target/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Morphoide 0.3.8 API'
+-linkoffline
+'https://docs.oracle.com/javase/8/docs/api' 'Z:/Projects/Morphoide/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'Morphoide 0.3.8 API'
