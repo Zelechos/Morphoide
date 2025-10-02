@@ -1,5 +1,4 @@
-# Morphoide [[v0.3.7]](https://github.com/Zelechos/PragmaticMorphoide/releases/tag/v0.3.7)
-
+# Morphoide [[v0.3.8]](https://github.com/Zelechos/PragmaticMorphoide/releases/tag/v0.3.8)
 ## Morphoide destroys the **Single Responsibility Principle** to be easier and faster to use
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
@@ -21,7 +20,7 @@
 <dependency>
     <groupId>io.github.zelechos</groupId>
     <artifactId>Morphoide</artifactId>
-    <version>0.3.7</version>
+    <version>0.3.8</version>
 </dependency>
 ```
 
@@ -29,7 +28,7 @@
 
 ```yml
 // https://mvnrepository.com/artifact/io.github.zelechos/Morphoide
-implementation group: 'io.github.zelechos', name: 'Morphoide', version: '0.3.7'
+implementation group: 'io.github.zelechos', name: 'Morphoide', version: '0.3.8'
 ```
 
 ## How to use ?? don't worry Morphoide is very easy to use
@@ -39,24 +38,39 @@ import io.github.morphoide.*;
 
 public class Main {
     public static void main(String[] args) {
-        Morphoide.containsLowerCase("MORPHOIdE");
-        Morphoide.getAFirstCharacterFromString("morphoide");
-        Morphoide.validatePassword("password", 8 , 15);
-        Morphoide.factorial(10);
+        String text = "Morphoide";
+        
+        // First Example
+        String response = Morphoide.meta()
+                .reverseString(text)
+                .morph();
+        //  or 
+        String response = Morphoide.meta(text)
+                .reverseString()
+                .morph();
+
+        // response : ediohproM
+        
     }
 }
 ```
 
-_All Morphoide subroutines are static for fast and simple implementation you don't need to create an instance to use Morphoide_
+_All Morphoide subroutines use Chaining Method for fast and simple implementation you don't need to create an instance to use Morphoide_
 ```java
 import static io.github.morphoide.Morphoide.*;
 
 public class Main {
     public static void main(String[] args) {
-        containsSpecialCharacter("morphoide@gmail.com");
-        getListOfUniqueElements(List.of("morphoide","morphoide","java","pragmic","java"));
-        lengthIsOdd("password");
-        fibonacci(10);
+        List<String> list = List.of(M,o,r,p,h,o,i,d,e);
+        var response = Morphoide.meta(list)
+                .stringConstruction() // Morphoide
+                .reverseString() // ediohproM
+                .stringDestructionToList() // [e, d, i, o, h, p, r, o, M]
+                .stringConstruction() // ediohproM
+                .morph();
+
+        // response : ediohproM
+        
     }
 }
 ```
@@ -66,11 +80,11 @@ public class Main {
 
 ## Look at the library here!!
 
-### [Morphoide v0.3.7](https://mvnrepository.com/artifact/io.github.zelechos/Morphoide/0.3.7)
+### [Morphoide v0.3.8](https://mvnrepository.com/artifact/io.github.zelechos/Morphoide/0.3.8)
 
 ## Download Morphoide
 
-### [Morphoide v0.3.7.jar](https://github.com/Zelechos/Morphoide/releases/download/v0.3.7/Morphoide-0.3.7.jar)
+### [Morphoide v0.3.8.jar](https://github.com/Zelechos/Morphoide/releases/download/v0.3.8/Morphoide-0.3.8.jar)
 
 ## Current Version
 
@@ -81,6 +95,7 @@ public class Main {
 | 31/03/2023 | v0.2.2  | The pom.xml was created               |
 | 09/04/2023 | v0.2.3  | Restructuring the project             |
 | 17/05/2025 | v0.3.7  | Add new subrutines                    |
+| 02/10/2025 | v0.3.8  | Add Idiom Chaning Subrutine           |
 
 <img align="center" src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif" alt="Morphoide" width="1000"/>
 
