@@ -80,7 +80,7 @@ public class Main {
 
 ## Look at the library here!!
 
-### [Morphoide v0.3.8](https://mvnrepository.com/artifact/io.github.zelechos/Morphoide/0.3.8)
+### [Morphoide v0.3.8](https://central.sonatype.com/artifact/io.github.zelechos/Morphoide/0.3.8)
 
 ## Download Morphoide
 
