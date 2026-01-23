@@ -6,7 +6,7 @@
 
     <groupId>io.github.zelechos</groupId>
     <artifactId>Morphoide</artifactId>
-    <version>0.3.8</version>
+    <version>0.3.9</version>
 
     <build>
         <plugins>
@@ -66,13 +66,10 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <executable>C:\Program Files (x86)\GnuPG\bin\gpg.exe</executable>
-                            <keyname>4523290E04150DD7</keyname>
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
                             </gpgArguments>
-                            <useAgent>true</useAgent>
                         </configuration>
                     </execution>
                 </executions>
